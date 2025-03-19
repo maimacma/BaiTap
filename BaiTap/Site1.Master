@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiTap.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:Table runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <a href="About.aspx"  style="text-decoration: none;"> Trang chủ</a>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false">
+                                <Items>
+                                    <asp:MenuItem Text="Các loại dịch vụ" >
+                                        <asp:MenuItem Text="Các loại tài khoản"></asp:MenuItem>
+                                        <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                </Items>
+                            </asp:Menu>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
