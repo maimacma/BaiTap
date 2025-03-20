@@ -12,13 +12,13 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Table runat="server">
+                <asp:Table runat="server" style="width:auto">
                     <asp:TableRow>
-                        <asp:TableCell Width="300">
-                            <a href="WebForm1.aspx"  style="text-decoration: none; color:black" Width="200" > Trang chủ</a>
+                        <asp:TableCell Width="500" Enabled="false">
+                            <a href="WebForm1.aspx"  style="text-decoration: none; color:black; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-size: xx-large; font-weight:bold" Width="20" > Trang chủ</a>
                         </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black">
+                        <asp:TableCell Width="160" Height="30" Font-Bold="true" Font-Names="Times New Roman">  
+                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black" DynamicHoverStyle-Font-Bold="true" Style="font-size:larger; font-family:'Times New Roman', Times, serif">
                                 <Items>
                                     <asp:MenuItem Text="Các loại dịch vụ" >
                                         <asp:MenuItem Text="Các loại tài khoản"></asp:MenuItem>
@@ -28,18 +28,19 @@
                                 </Items>
                             </asp:Menu>
                         </asp:TableCell>
-                        <asp:TableCell runat="server" Width="150">
-                            <a href="WebForm2.aspx" style="text-decoration: none; color:black">Lịch sử mua hàng</a>
+                        <asp:TableCell runat="server" Width="170">
+                            <a href="WebForm2.aspx" style="text-decoration: none;  font-family:'Times New Roman', Times, serif;font-size: large; color:black; font-weight:bold ">Lịch sử mua hàng</a>
                         </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <a href="" style="text-decoration:none; color:black">
+                        <asp:TableCell Width="110">
+                            <a href="WebForm3.aspx" style="text-decoration:none;  font-family:'Times New Roman', Times, serif;font-size: larger; color:black ; font-weight:bold ">
                                 Nạp tiền
                             </a>
 
                         </asp:TableCell>
-                        <asp:TableCell>
-
+                        <asp:TableCell Width="120">
+                            <a href="WebForm4.aspx" style="text-decoration:none;  font-family:'Times New Roman', Times, serif;font-size: larger; color:black ; font-weight:bold " > Đăng nhập</a>
                         </asp:TableCell>
+                        <asp:TableCell><a href="WebForm5.aspx" style="text-decoration:none; color:black; font-family:'Times New Roman', Times, serif; font-size:larger; font-weight:bold"> Đăng Ký</a> </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
             </asp:ContentPlaceHolder>
