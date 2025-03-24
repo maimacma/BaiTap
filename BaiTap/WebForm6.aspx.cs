@@ -11,12 +11,17 @@ namespace BaiTap
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                viewthunhat.ActiveViewIndex = 0;
+            }    
         }
 
-        protected void Unnamed2_Click(object sender, EventArgs e)
+        protected void doi(object sender, EventArgs e)
         {
-
+           LinkButton button = (LinkButton)sender;
+            int trang = Convert.ToInt32(button.CommandArgument);
+            viewthunhat.ActiveViewIndex = trang;
         }
     }
 }

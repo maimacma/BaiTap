@@ -1,59 +1,126 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiTap.Site1" %>
-
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm6.aspx.cs" Inherits="BaiTap.WebForm6" %>
 
 <!DOCTYPE html>
-<html lang="vi">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8">
-    <title>Quản Lý Cửa Hàng</title>
     <style>
-        /* Thiết lập kiểu chung */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        .mar
+        {
+                   font-size: 24px;
+           font-weight: bold;
+           color: darkred;
+           margin-bottom: 10px; 
+           text-align:center
         }
+        .trai
+        {
+               width: 200px;
+    border: 2px solid black;
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+    color:red;
+    background-color:azure;
 
-<html>
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+                
+        }
+        .hienthi{
+            display:flex;
+        }
+        .container {
+    display: flex;  /* Sử dụng flexbox để tạo bố cục ngang */
+}
+
+.menu {
+    width: 200px;  /* Đặt chiều rộng cho menu */
+    padding: 10px;
+    background-color: #f4f4f4; /* Màu nền cho menu */
+    border:2px solid red;
+}
+
+.content {
+    flex: 1;  /* Phần content sẽ chiếm hết không gian còn lại */
+    padding: 10px;
+    border:dashed 5px red;
+}
+
+#CacLoaiBang {
+    margin-left: 0; /* Đảm bảo MultiView không bị lùi vào trong */
+    width: 100%;  /* Cho phép MultiView chiếm toàn bộ không gian */
+}
+
+    </style>
+    <title> Quản Lý Shop</title>
 </head>
-<body>
+<body style="background-color:wheat;">
     <form id="form1" runat="server">
+        <div class="mar">
+            SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
+        </div>
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Table runat="server">
-                    <asp:TableRow>
-                        <asp:TableCell Width="300">
-                            <a href="WebForm1.aspx"  style="text-decoration: none; color:black" Width="200" > Trang chủ</a>
-                        </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black">
-                                <Items>
-                                    <asp:MenuItem Text="Các loại dịch vụ" >
-                                        <asp:MenuItem Text="Các loại tài khoản"></asp:MenuItem>
-                                        <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
-                                        <asp:MenuItem Text="Cày thuê"></asp:MenuItem>
-                                    </asp:MenuItem>
-                                </Items>
-                            </asp:Menu>
-                        </asp:TableCell>
-                        <asp:TableCell runat="server" Width="150">
-                            <a href="WebForm2.aspx" style="text-decoration: none; color:black">Lịch sử mua hàng</a>
-                        </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <a href="" style="text-decoration:none; color:black">
-                                Nạp tiền
-                            </a>
+            <asp:Label runat="server" ID="time1" ></asp:Label>
+        </div>
+        <div class="container">
+            <div class="menu">
+                <h3 style="background-color:aliceblue;">DANH MỤC QUẢN LÝ</h3>
+                <asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="0" OnClick="ChangeView">Trang chủ</asp:LinkButton>
+                <br />
+                <asp:LinkButton runat="server" OnClick="ChangeView" Style="text-decoration:none;" CommandArgument="1">Items</asp:LinkButton>
+                <br />
+                <asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="2" OnClick="ChangeView">Account</asp:LinkButton>
+                <br /><asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="3" OnClick="ChangeView">Cày thuê</asp:LinkButton>
+                <br /><asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="4" OnClick="ChangeView">Tiền tệ trong các game</asp:LinkButton>
+            </div>
+            <div class="content">
+                <asp:MultiView runat="server" ID="CacLoaiBang">
+                    <asp:View ID="View0" runat="server"> 
+                        <h2 style="text-align:center">
+                            Trang chu
+                        </h2>
+                        <a>
+                            Trang chu.
+                        </a>
 
-                        </asp:TableCell>
-                        <asp:TableCell>
+                    </asp:View>
+                    <asp:View ID="View1" runat="server"> 
+                        <h2 style="text-align:center">
+                            Items
+                        </h2>
+                        <a>
+                            Trang Items.
+                        </a>
 
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-            </asp:ContentPlaceHolder>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server"> 
+                        <h2 style="text-align:center">
+                            Account
+                        </h2>
+                        <a>
+                             Trang Account.
+                        </a>
+                        </asp:View>
+                        <asp:View ID="View3" runat="server"> 
+                        <h2 style="text-align:center">
+                            Cay thue
+                        </h2>
+                        <a>
+                            Trang Cay thue.
+                        </a>
+                            </asp:View>
+                             <asp:View ID="View4" runat="server"> 
+                        <h2 style="text-align:center">
+                            Cac loai tien te
+                        </h2>
+                        <a>
+                            Trang Tien te trong game.
+                        </a>
+
+                    
+                    
+                    </asp:View>
+                </asp:MultiView>
+            </div>
         </div>
     </form>
 </body>
