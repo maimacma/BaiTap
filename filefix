@@ -1,51 +1,60 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm6.aspx.cs" Inherits="BaiTap.WebForm6" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiTap.Site1" %>
+
 
 <!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="UTF-8">
+    <title>Quản Lý Cửa Hàng</title>
+    <style>
+        /* Thiết lập kiểu chung */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-color:darkred" >
-            <asp:Table runat="server" Class="Sai" HorizontalAlign="Center" >
-                <asp:TableRow Style="text-align:center; align-content:center; column-span:2" >
-                 <asp:TableCell Style="text-align:center">
-                     <p style="color:aliceblue; align-content:center;font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-weight:bold"> SHOPABC.COM NƠI BÁN ITEMS-ACCOUNT-CÀY THUÊ UY TÍN SỐ 1 VN</p>
-                 </asp:TableCell>
-                    
-                </asp:TableRow>
-            </asp:Table>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:Table runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell Width="300">
+                            <a href="WebForm1.aspx"  style="text-decoration: none; color:black" Width="200" > Trang chủ</a>
+                        </asp:TableCell>
+                        <asp:TableCell Width="150">
+                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black">
+                                <Items>
+                                    <asp:MenuItem Text="Các loại dịch vụ" >
+                                        <asp:MenuItem Text="Các loại tài khoản"></asp:MenuItem>
+                                        <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
+                                        <asp:MenuItem Text="Cày thuê"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                </Items>
+                            </asp:Menu>
+                        </asp:TableCell>
+                        <asp:TableCell runat="server" Width="150">
+                            <a href="WebForm2.aspx" style="text-decoration: none; color:black">Lịch sử mua hàng</a>
+                        </asp:TableCell>
+                        <asp:TableCell Width="150">
+                            <a href="" style="text-decoration:none; color:black">
+                                Nạp tiền
+                            </a>
 
+                        </asp:TableCell>
+                        <asp:TableCell>
+
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            </asp:ContentPlaceHolder>
         </div>
-     
-        <p></p>
-        <asp:Table runat="Server">
-            <asp:TableRow>
-                
-                <asp:TableCell>
-                    <a>
-                        Items
-                    </a>
-                  
-                </asp:TableCell>
-                <asp:TableCell>
-                    <a> Cày thuê</a>
-                </asp:TableCell>
-            </asp:TableRow>
-<asp:TableRow>
-    <asp:TableCell>
-        <a></a>
-    </asp:TableCell>
-</asp:TableRow>
-            </asp:Table>
-        <asp:Table runat="server" HorizontalAlign="Center">
-            <asp:TableFooterRow>
-                <asp:TableCell> <p style="align-content:center; font-size:larger; tab-size:inherit">Địa chỉ: Nhà ABC, Ngõ ABC, Đường ABC, Khu ABC, Tỉnh ABC, Nước ABC</p></asp:TableCell>
-            </asp:TableFooterRow>
-        </asp:Table>
-        
     </form>
 </body>
 </html>
