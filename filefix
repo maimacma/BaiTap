@@ -1,48 +1,152 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiTap.Site1" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cuahang_trangchu.aspx.cs" Inherits="WebApplication1.cuahang_trangchu" %>
+
 
 <!DOCTYPE html>
-
-<html>
+<html lang="vi">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <meta charset="UTF-8">
+    <title>Quản Lý Cửa Hàng</title>
+    <style>
+        /* Thiết lập kiểu chung */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Tiêu đề công ty */
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkred;
+            margin-bottom: 10px;
+        }
+
+        /* Bố cục trang */
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Menu bên trái */
+        .menu-left {
+            width: 200px;
+            border: 2px solid black;
+            text-align: left;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .menu-left h3 {
+            background-color: black;
+            color: red;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .menu-left a {
+            display: block;
+            padding: 5px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .menu-left a:hover {
+            background-color: lightgray;
+        }
+
+        /* Menu ngang */
+        .menu-top {
+            flex: 1;
+            border: 2px solid black;
+            text-align: center;
+            padding: 5px;
+            background-color: black;
+        }
+
+        .menu-top a {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .menu-top a:hover {
+            color: pink;
+        }
+
+        /* Nội dung hiển thị */
+        .content {
+            flex: 1;
+            border: 2px solid black;
+            padding: 20px;
+            min-height: 200px;
+            background-color: white;
+        }
+
+        /* Chân trang */
+        .footer {
+            margin-top: 10px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Table runat="server">
-                    <asp:TableRow>
-                        <asp:TableCell Width="300">
-                            <a href="WebForm1.aspx"  style="text-decoration: none; color:black" Width="200" > Trang chủ</a>
-                        </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black">
-                                <Items>
-                                    <asp:MenuItem Text="Các loại dịch vụ" >
-                                        <asp:MenuItem Text="Các loại tài khoản"></asp:MenuItem>
-                                        <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
-                                        <asp:MenuItem Text="Cày thuê"></asp:MenuItem>
-                                    </asp:MenuItem>
-                                </Items>
-                            </asp:Menu>
-                        </asp:TableCell>
-                        <asp:TableCell runat="server" Width="150">
-                            <a href="WebForm2.aspx" style="text-decoration: none; color:black">Lịch sử mua hàng</a>
-                        </asp:TableCell>
-                        <asp:TableCell Width="150">
-                            <a href="" style="text-decoration:none; color:black">
-                                Nạp tiền
-                            </a>
+        <!-- Tiêu đề -->
+        <div class="header">
+            CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ - ĐIỆN TỬ - MÁY TÍNH TRƯỜNG THANH HÀO
+        </div>
 
-                        </asp:TableCell>
-                        <asp:TableCell>
+        <!-- Khu vực bố cục -->
+        <div class="container">
+            <!-- Menu trái -->
+            <div class="menu-left">
+                <h3>DANH MỤC QUẢN LÝ</h3>
+                <asp:LinkButton ID="lnkHome" runat="server" OnClick="ShowView" CommandArgument="0">Trang Chủ</asp:LinkButton>
+                <asp:LinkButton ID="lnkLoaiSP" runat="server" OnClick="ShowView" CommandArgument="1">Loại sản phẩm</asp:LinkButton>
+                <asp:LinkButton ID="lnkNSX" runat="server" OnClick="ShowView" CommandArgument="2">Đơn vị sản xuất</asp:LinkButton>
+                <asp:LinkButton ID="lnkSanPham" runat="server" OnClick="ShowView" CommandArgument="3">Sản phẩm</asp:LinkButton>
+                <asp:LinkButton ID="lnkHoaDon" runat="server" OnClick="ShowView" CommandArgument="4">Hóa đơn</asp:LinkButton>
+                <asp:LinkButton ID="lnkKhachHang" runat="server" OnClick="ShowView" CommandArgument="5">Khách hàng</asp:LinkButton>
+            </div>
 
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-            </asp:ContentPlaceHolder>
+            <!-- Khu vực nội dung -->
+            <div class="content">
+                <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:View ID="View0" runat="server">
+                        <h2>Trang Chủ</h2>
+                        <p>Chào mừng bạn đến với hệ thống quản lý.</p>
+                    </asp:View>
+                    <asp:View ID="View1" runat="server">
+                        <h2>Loại sản phẩm</h2>
+                        <p>Danh sách loại sản phẩm.</p>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                        <h2>Đơn vị sản xuất</h2>
+                        <p>Thông tin về các nhà sản xuất.</p>
+                    </asp:View>
+                    <asp:View ID="View3" runat="server">
+                        <h2>Sản phẩm</h2>
+                        <p>Danh sách sản phẩm.</p>
+                    </asp:View>
+                    <asp:View ID="View4" runat="server">
+                        <h2>Hóa đơn</h2>
+                        <p>Danh sách hóa đơn.</p>
+                    </asp:View>
+                    <asp:View ID="View5" runat="server">
+                        <h2>Khách hàng</h2>
+                        <p>Danh sách khách hàng.</p>
+                    </asp:View>
+                </asp:MultiView>
+            </div>
+        </div>
+
+        <!-- Chân trang -->
+        <div class="footer">
+            địa chỉ : 1797 Quốc Lộ 51, Ấp xóm góc, Xã Long An, Huyện Long Thành, Tỉnh Đồng Nai
         </div>
     </form>
 </body>
