@@ -10,16 +10,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="width:auto">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <asp:Table runat="server" style="width:auto; background-color:aliceblue">
                     <asp:TableRow>
-                        <asp:TableCell Width="1050" Enabled="false">
+                        <asp:TableCell Width="850" Enabled="false">
                             <a href="WebForm1.aspx"  style="text-decoration: none; color:black; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-size: xx-large; font-weight:bold" Width="20" > Trang chủ</a>
+                        </asp:TableCell>
+                        <asp:TableCell Style="width:200px">
+                            <a style="font-weight:bold;font-family:'Times New Roman', Times, serif;font-size:larger;text-decoration:none;color:black" href="WebForm7.aspx" >Thông tin tài khoản</a>
                         </asp:TableCell>
                         <asp:TableCell Width="200" Height="50" Font-Bold="true" Font-Names="Times New Roman" Style="color:black">  
                             <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black" DynamicHoverStyle-Font-Bold="true" Style="font-size:larger; font-family:'Times New Roman', Times, serif; background-color:aliceblue;" BorderColor="Wheat" DynamicHoverStyle-ForeColor="AliceBlue">
                                 <Items >
+                                    
                                     <asp:MenuItem Text="Các loại dịch vụ" >
                                         <asp:MenuItem Text="Các loại tài khoản" ></asp:MenuItem>
                                         <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
