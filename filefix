@@ -55,73 +55,54 @@
 </head>
 <body style="background-color:wheat;">
     <form id="form1" runat="server">
-        <div class="mar">
-            SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
-        </div>
-        <div>
-            <asp:Label runat="server" ID="time1" ></asp:Label>
-        </div>
-        <div class="container">
-            <div class="menu">
-                <h3 style="background-color:aliceblue;">DANH MỤC QUẢN LÝ</h3>
-                <asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="0" OnClick="ChangeView">Trang chủ</asp:LinkButton>
-                <br />
-                <asp:LinkButton runat="server" OnClick="ChangeView" Style="text-decoration:none;" CommandArgument="1">Items</asp:LinkButton>
-                <br />
-                <asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="2" OnClick="ChangeView">Account</asp:LinkButton>
-                <br /><asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="3" OnClick="ChangeView">Cày thuê</asp:LinkButton>
-                <br /><asp:LinkButton runat="server" Style="text-decoration:none;" CommandArgument="4" OnClick="ChangeView">Tiền tệ trong các game</asp:LinkButton>
-            </div>
-            <div class="content">
-                <asp:MultiView runat="server" ID="CacLoaiBang">
-                    <asp:View ID="View0" runat="server"> 
-                        <h2 style="text-align:center">
-                            Trang chu
-                        </h2>
-                        <a>
-                            Trang chu.
-                        </a>
+<tr>
+                <td >
+                    <div>
+        <script language="javascript">
+                            var biendem = 0;
+                            var i = 0;
+                            var masanpham = 0;
+                            var hinh = 0;
+                            var manghinh = new Array();
+                            var mangid = new Array();
 
-                    </asp:View>
-                    <asp:View ID="View1" runat="server"> 
-                        <h2 style="text-align:center">
-                            Items
-                        </h2>
-                        <a>
-                            Trang Items.
-                        </a>
 
-                    </asp:View>
-                    <asp:View ID="View2" runat="server"> 
-                        <h2 style="text-align:center">
-                            Account
-                        </h2>
-                        <a>
-                             Trang Account.
-                        </a>
-                        </asp:View>
-                        <asp:View ID="View3" runat="server"> 
-                        <h2 style="text-align:center">
-                            Cay thue
-                        </h2>
-                        <a>
-                            Trang Cay thue.
-                        </a>
-                            </asp:View>
-                             <asp:View ID="View4" runat="server"> 
-                        <h2 style="text-align:center">
-                            Cac loai tien te
-                        </h2>
-                        <a>
-                            Trang Tien te trong game.
-                        </a>
+    <%
+        for (int i = 0; i < DataTable_select_sanpham_advertisement.Rows.Count; i++) 
+        {       
+     %>
+                            mangid[i] = "<%=DataTable_select_sanpham_advertisement.Rows[i]["masanpham"]%>";
+                            manghinh[i] = "<%=DataTable_select_sanpham_advertisement.Rows[i]["hinh"]%>";
+                            i++;
+       <% }%>
 
-                    
-                    
-                    </asp:View>
-                </asp:MultiView>
-            </div>
-        </div>
+                function xoay()
+                            {
+                    if (biendem > (manghinh.length - 1)) biendem = 0;
+                                masanpham = biendem;
+                                hinh = biendem;
+                                document.khunghinhngang.src = "../images/" + manghinh[hinh];
+                                timeout = setTimeout("xoay()", 3000);
+                                biendem++;
+                            }
+                            function dunghinhlai() {
+                                clearTimeout(timeout);
+
+                            }
+                            function doihinhkhac() {
+                                clearTimeout(timeout);
+                                xoay();
+                            }
+                            function trangchitiet() {
+                                window.location = "khachhang_chitietsanpham.aspx?masanpham=" + mangid[masanpham];
+                            }
+    </script>
+       
+        <img  src="" onclick="trangchitiet();"  onmouseover="dunghinhlai();" onmouseout="doihinhkhac();"  name="khunghinhngang"  style="  text-align: center; z-index: 1;" width="1024" height="350" />
+    </div>
+                </td>
+             
+            </tr>
     </form>
 </body>
 </html>
