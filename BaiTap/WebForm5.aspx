@@ -38,10 +38,13 @@
             <asp:TableCell Width="120"><a href="WebForm5.aspx" style="text-decoration:none; color:black; font-family:'Times New Roman', Times, serif; font-size:larger; font-weight:bold" > Đăng Ký</a> </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <div  class="bang" style="width:1819px; align-items:center" >
-        <div style="border:solid 2px blue;place-items:center;place-content:center;display:block;width:200PX;text-align:center" >
+    <div  class="bang" style="width:max-content; align-items:center;text-align:center" >
+        <div style="place-items:center;place-content:center;display:block; width:max-content; text-align:center;" >
          
-            <label>   ĐĂNG KÝ</label>
+            <h2 style="text-align:center">  ĐĂNG KÝ</h2>
+            <div>
+               
+            </div>
           
         </div>
     </div>
