@@ -4,4 +4,11 @@
 {
     place-items:center;
 }
+.anhnen {
+    background-image: url(D:/Meme/fileanh.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
 

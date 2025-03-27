@@ -3,7 +3,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <asp:Table runat="server" style="width:auto; background-color:aliceblue">
+   
+    <asp:Table runat="server" style="width:auto; background-color:aliceblue; margin-bottom: 2px;">
         <asp:TableRow>
             <asp:TableCell Width="850" Enabled="false">
                             <a href="WebForm1.aspx"  style="text-decoration: none; color:black; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-size: xx-large; font-weight:bold" Width="20" > Trang chủ</a>
@@ -38,16 +39,23 @@
             <asp:TableCell Width="120"><a href="WebForm5.aspx" style="text-decoration:none; color:black; font-family:'Times New Roman', Times, serif; font-size:larger; font-weight:bold" > Đăng Ký</a> </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <div  class="bang" style="width:max-content; align-items:center;text-align:center" >
-        <div style="place-items:center;place-content:center;display:block; width:max-content; text-align:center;" >
+    
+    <div style="background-image:url('file:///d:/asp/baitap/baitap/anh/anh2.jpg'); background-size:cover; height: 1080px;width:1920;">
+   
+        <div style="place-items:center;place-content:center;display:block; width:100%; text-align:center;" >
          
-            <h2 style="text-align:center">  ĐĂNG KÝ</h2>
-            <div>
-               
-            </div>
+            <a style="font-size:xx-large;font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;font-weight:bold;width:100%;">ĐĂNG KÝ</a>
+           
           
         </div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
     </div>
+        
 </asp:Content>
 
 
