@@ -8,23 +8,28 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body >
+   
     <form id="form1" runat="server">
-        <div style="width:auto">
+         <header style=" width:100%;height:100%; margin-bottom: 0px;background-color:cyan;padding:0px"> 
+        <h2 class="kieuchu" style="text-align:center;width:100%">
+            SHOPABC BÁN ACC - CÀY THUÊ GAME - BÁN VẬT PHẨM GAME - BÁN ROBUX UY TÍN NHẤT VIỆT NAM
+        </h2>
+             <div style="width:100%;" >
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Table runat="server" style="width:auto; background-color:aliceblue">
+                <asp:Table runat="server" style="width:auto;">
                     <asp:TableRow>
-                        <asp:TableCell Width="850" Enabled="false">
+                        <asp:TableCell Width="830" Enabled="false">
                             <a href="WebForm1.aspx"  style="text-decoration: none; color:black; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-size: xx-large; font-weight:bold" Width="20" > Trang chủ</a>
                         </asp:TableCell>
                         <asp:TableCell Style="width:200px">
                             <a style="font-weight:bold;font-family:'Times New Roman', Times, serif;font-size:larger;text-decoration:none;color:black" href="WebForm7.aspx" >Thông tin tài khoản</a>
                         </asp:TableCell>
                         <asp:TableCell Width="200" Height="50" Font-Bold="true" Font-Names="Times New Roman" Style="color:black">  
-                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black" DynamicHoverStyle-Font-Bold="true" Style="font-size:larger; font-family:'Times New Roman', Times, serif; background-color:aliceblue;" BorderColor="Wheat" DynamicHoverStyle-ForeColor="AliceBlue">
+                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-ForeColor="Black" DynamicHoverStyle-Font-Bold="true" Style="font-size:larger; font-family:'Times New Roman', Times, serif;" BorderColor="Wheat" >
                                 <Items >
                                     
-                                    <asp:MenuItem Text="Các loại dịch vụ" >
+                                    <asp:MenuItem Text="Các loại dịch vụ"  >
                                         <asp:MenuItem Text="Các loại tài khoản" ></asp:MenuItem>
                                         <asp:MenuItem Text="Vật phẩm trong game"></asp:MenuItem>
                                         <asp:MenuItem Text="Cày thuê"></asp:MenuItem>
@@ -41,7 +46,7 @@
                             </a>
 
                         </asp:TableCell>
-                        <asp:TableCell Width="160">
+                        <asp:TableCell Width="180">
                             <a href="WebForm4.aspx" style="text-decoration:none;  font-family:'Times New Roman', Times, serif;font-size: larger; color:black ; font-weight:bold " > Đăng nhập</a>
                         </asp:TableCell>
                         <asp:TableCell Width="120"><a href="WebForm5.aspx" style="text-decoration:none; color:black; font-family:'Times New Roman', Times, serif; font-size:larger; font-weight:bold" > Đăng Ký</a> </asp:TableCell>
@@ -49,6 +54,19 @@
                 </asp:Table>
             </asp:ContentPlaceHolder>
         </div>
+        </header>
+        <div>
+
+        </div>
+        <footer style="text-align:center;width:100%;background-color:cyan">
+            <div >
+                  <a style="font-family:'Times New Roman';font-weight:bold;">
+                        Shopabc bán acc - Cày thuê game - Bán vật phẩm game - Bán robux uy tín nhất Việt Nam
+  </a>
+              
+            </div>
+          
+        </footer>
     </form>
 </body>
 </html>
