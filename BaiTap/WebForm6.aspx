@@ -19,19 +19,20 @@
                width: 200px;
     border: 2px solid black;
     text-align: left;
-    padding: 20px;
+    padding: 0px;
     background-color: white;
-    color:red;
+   
     background-color:azure;
     float:left;
-          min-height:200px;     
+          min-height:200px;  
+       
         }
         .phai{
            border:2px solid;
             text-align:center;
             width:auto;
         
-       padding:20px;
+       padding:0px;
        justify-content:center;
        flex:1px;
        min-height:200px;
@@ -44,21 +45,24 @@
 </head>
 <body style="background-color:wheat;">
     <form id="form1" runat="server">
+        <header>
         <div class="mar">
             SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
         </div>
-        <div class="conten">
+            </header>
+        <div class="conten" style="place-content:left;place-items:left">
             <div class="trai">
-                <h3 style="background-color:aliceblue;">DANH MỤC QUẢN LÝ</h3>
-                <asp:LinkButton runat="server" Style="text-decoration:none;color:black;font-weight:bold" CommandArgument="0" OnClick="doi">Trang chủ</asp:LinkButton>
-                <br />
-                <asp:LinkButton runat="server"  Style="text-decoration:none;color:blue;font-weight:bold" CommandArgument="1" OnClick="doi">Items</asp:LinkButton>
-                <br />
-                <asp:LinkButton runat="server" Style="text-decoration:none;color:lightgreen;font-weight:bold" CommandArgument="2" OnClick="doi">Account</asp:LinkButton>
-                <br /><asp:LinkButton runat="server" Style="text-decoration:none;color:darkblue;font-weight:bold" CommandArgument="3" OnClick="doi">
-                    Cày thuê</asp:LinkButton>
-                <br /><asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold" CommandArgument="4" OnClick="doi">
-                    Tiền tệ trong các game</asp:LinkButton>
+                <h3  style="background-color:aliceblue;width:100%; height: 30px; margin-left: 0px;text-align:left;padding:0px;color:red">DANH MỤC QUẢN LÝ</h3>
+                <div style="padding-bottom:10px">
+                <asp:LinkButton runat="server" Style="text-decoration:none;color:black;font-weight:bold;height:30px" CommandArgument="0" OnClick="doi">Trang chủ</asp:LinkButton>
+                </div>
+                <div  style="padding-bottom:10px">
+                <asp:LinkButton runat="server"  Style="text-decoration:none;color:blue;font-weight:bold;display:flow;" CommandArgument="1" OnClick="doi">Items</asp:LinkButton>
+                
+                </div >
+               <div style="padding-bottom:10px"> <asp:LinkButton runat="server" Style="text-decoration:none;color:lightgreen;font-weight:bold" CommandArgument="2" OnClick="doi">Account</asp:LinkButton></div>
+               <div style="padding-bottom:10px"><asp:LinkButton runat="server" Style="text-decoration:none;color:darkblue;font-weight:bold" CommandArgument="3" OnClick="doi"> Cày thuê</asp:LinkButton></div>
+              <div style="padding-bottom:10px"><asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold" CommandArgument="4" OnClick="doi"> Tiền tệ trong các game</asp:LinkButton></div>
             </div>
             <div class="phai">
                 <asp:MultiView runat="server" ID="viewthunhat">
@@ -110,6 +114,11 @@
                 </asp:MultiView>
             </div>
         </div>
+        <footer>
+            <h3>
+                Địa chỉ: ABC,ABC,ABC,ABC
+            </h3>
+        </footer>
     </form>
 </body>
 </html>

@@ -143,8 +143,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="anh\1000001298.jpg" />
+    <Content Include="anh\1000001299.jpg" />
+    <Content Include="anh\1000001352.jpg" />
+    <Content Include="anh\1000001359.jpg" />
+    <Content Include="anh\1000001417.jpg" />
+    <Content Include="anh\1000001438.jpg" />
+    <Content Include="anh\1000001439.jpg" />
+    <Content Include="anh\1000001696.jpg" />
+    <Content Include="anh\314516869_491869959710827_2371043791037971136_n.jpg" />
+    <Content Include="anh\325782231_1576847482830263_5387197950742038069_n.jpg" />
+    <Content Include="anh\329089180_869093850844456_1387316676188238373_n.jpg" />
+    <Content Include="anh\329093080_912422083433250_3695369517772523752_n.jpg" />
     <Content Include="anh\anh1.jpg" />
     <Content Include="anh\anh2.jpg" />
+    <Content Include="anh\anh3.jpg" />
+    <Content Include="anh\anh4.jpg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
