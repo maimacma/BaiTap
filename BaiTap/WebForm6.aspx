@@ -44,7 +44,7 @@
     <title> Quản Lý Shop</title>
 </head>
 <body style="background-color:wheat;">
-    <form id="form1" runat="server">
+<link href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" />   <form id="form1" runat="server">
         <header>
         <div class="mar">
             SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
@@ -67,13 +67,15 @@
             <div class="phai">
                 <asp:MultiView runat="server" ID="viewthunhat">
                     <asp:View runat="server" ID="view0">
-                        <h2>
-                            TRANG CHỦ
-                        </h2>
-                        <a>
-                            ĐÂY LÀ TRANG CHỦ
+                        <div style="width:20%;place-items:center;place-content:center;text-align:center;padding-top:10px">
 
-                        </a>
+                <asp:TextBox runat="server" CssClass="chinhbox">
+
+                </asp:TextBox>
+                        <asp:TextBox runat="server" CssClass="chinhbox"></asp:TextBox>
+                        <asp:Button runat="server" Text="Thêm" CssClass="cn"/>
+                            <asp:Button  runat="server" Text="hủy"/>
+                            </div>
                     </asp:View>
                          <asp:View runat="server" ID="view1">
          <h2>

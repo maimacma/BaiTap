@@ -17,13 +17,35 @@
 }
 .bangmini {
     display: grid;
-    grid-template-columns: 50PX 50px 50PX;
-    height:50px;
+    grid-template-columns: 200px 200px 200px;
+    height: 200px;
 }
 .blox {
     display: block !important;
     border-radius: 10px !important;
     border: 1px solid black !important;
+    padding-right: 10px;
+    margin-right:10px;
+    text-align:center !important;
+    place-items:center;
+}
+.canle {
+    margin: 0% 0% 0% 0%;
+    margin-top:0%;
+    padding: 0% 0% 0% 0%;
+}
+.new{
+    padding-top:10px;
+}
+.chinhbox {
+    display: block; /* Mỗi TextBox xuống dòng */
+    margin-bottom: 10px; /* Khoảng cách giữa chúng */
+    padding: 5px;
+    width: 80%;
+
+}
+.cn{
+    margin-right:10px;
 }
 
 

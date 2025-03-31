@@ -13,7 +13,7 @@
 
 
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <link  href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" />
+ <link href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" />
     <asp:Table runat="server" style="width:auto;">
         <asp:TableRow>
             <asp:TableCell Width="830" Enabled="false">
@@ -49,17 +49,25 @@
             <asp:TableCell Width="120"><a href="WebForm5.aspx" style="text-decoration:none; color:black; font-family:'Times New Roman', Times, serif; font-size:larger; font-weight:bold" > Đăng Ký</a> </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <div style="background-image:url('../anh/anh1.jpg');width:100%;height:70%;background-size:cover">
-      <div class="bangmini">
-         <div class="blox">
-             1
-         </div>
-          <div class="blox"> 2</div>
-          <div class="blox"> 3</div>
-      </div>
-    </div>
-
+        <div>
+    <asp:Image runat="server" ImageUrl="~/anh/anhbanner.jpg" Width="100%" Height="20%"/>
+</div>
+<div style="width:100%;height:70%;">
+  <div class="bangmini" style="text-align:center">
+     <div class="blox">
+         <asp:Image runat="server" ImageUrl="~/anh/1000001352.jpg" Width="70%" Height="50%"/>
+         <h4 style="padding-bottom:0px; margin-bottom:1px">Acount 10 củ</h4>
+         <a>Account bao gồm các loại đồ k thể được ở hiện tại</a>
+         <br />
+        <asp:Button runat="server" Text="Mua Hàng" Style="border-radius:10px"/>
+     </div>
+      <div class="blox"> 2</div>
+      <div class="blox"> 3</div>
+  </div>
+</div>
 </asp:Content>
+
+
 
 
 

@@ -1,17 +1,18 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiTap.Site1" %>
 
 <!DOCTYPE html>
-
+<link href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" />
 <html>
+        
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body >
+<body class="canle">
    
     <form id="form1" runat="server">
-         <header style=" width:100%;height:100%; margin-bottom: 0px;background-color:cyan;padding:0px"> 
+         <header style=" width:100%;height:100%; margin-bottom: 0px;background-color:cyan;padding:0px;margin: 0px 0px 0px 0px"> 
         <h2 class="kieuchu" style="text-align:center;width:100%">
             SHOPABC BÁN ACC - CÀY THUÊ GAME - BÁN VẬT PHẨM GAME - BÁN ROBUX UY TÍN NHẤT VIỆT NAM
         </h2>
@@ -58,7 +59,7 @@
         <div>
 
         </div>
-        <footer style="text-align:center;width:100%;background-color:cyan">
+        <footer class="canle" style="text-align:center;width:100%;background-color:cyan">
             <div >
                   <a style="font-family:'Times New Roman';font-weight:bold;">
                         Shopabc bán acc - Cày thuê game - Bán vật phẩm game - Bán robux uy tín nhất Việt Nam
