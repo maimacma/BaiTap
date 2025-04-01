@@ -9,7 +9,6 @@ namespace BaiTap.sql
     
     public class Class1
     {
-        string con = "";
-        SqlConnection ketnoit = new SqlConnection(con);
+    
     }
 }

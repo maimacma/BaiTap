@@ -47,6 +47,20 @@
 .cn{
     margin-right:10px;
 }
-
+.dn {
+    display: flex;
+    justify-content: center; /* Căn giữa các cột theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc (nếu cần) */
+    height: 100vh; /* Để căn giữa theo chiều dọc, nếu cần */
+}
+    .bacot {
+    width: 100px; /* Điều chỉnh kích thước theo ý muốn */
+    height: 100px;
+    background: lightblue;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
