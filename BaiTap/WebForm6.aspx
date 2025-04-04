@@ -40,11 +40,15 @@
         .conten{
             width:auto;
         }
+        .auto-style1 {
+            width: 128px;
+        }
     </style>
     <title> Quản Lý Shop</title>
 </head>
 <body style="background-color:wheat;">
-<link href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" />   <form id="form1" runat="server">
+<link href="Css/StyleSheet1.css" rel="stylesheet" type="text/css" /> 
+    <form id="form1" runat="server" method="post">
         <header>
         <div class="mar">
             SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
@@ -67,8 +71,8 @@
             <div class="phai">
                 <asp:MultiView runat="server" ID="viewthunhat">
                     <asp:View runat="server" ID="view0">
-                        <div style="display:flex;">
-                        <div style="width:30%;place-items:center;place-content:center;text-align:center;padding-top:50px">
+                        <div style="display:flex;flex:1PX">
+                        <div style="width:30%;place-items:center;place-content:center;text-align:center;padding-top:30PX;padding-left:30PX">
                             <asp:Label runat="server"> Mã loại sản phẩm</asp:Label>
                 <asp:TextBox runat="server" CssClass="chinhbox" ID="t1">
 
@@ -77,7 +81,8 @@
                         <asp:TextBox runat="server" CssClass="chinhbox" ID="t2"></asp:TextBox>
                         <asp:Button runat="server" Text="Thêm" CssClass="cn" ID="b1"/>
                             <asp:Button  runat="server" Text="hủy" ID="b2" CssClass="cn"/>
-                            <div style="place-items:center;place-content:right;width:70%;padding-top:50px">
+                            </div>
+                            <div style="place-items:center;place-content:right;width:100%;margin-bottom: 2px;padding-top:30PX">
                                 <asp:GridView ID="gri1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gri1_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField ControlStyle-Width="100%" DataField="maloaisanpham" HeaderText="Mã Lọai Sản Phẩm">
@@ -87,14 +92,48 @@
                                         <asp:CommandField SelectText="Chọn" ShowSelectButton="True" />
                                     </Columns>
                                 </asp:GridView>
-                            </div>
+                            
                             </div>
                          
                             </div>
                     </asp:View>
                          <asp:View runat="server" ID="view1">
       <div style="display:flex">
-          <div></div>
+          <div style="padding-top:10PX">
+              <table>
+                  <tr>
+                      <td>
+                          <asp:Label runat="server" ID="lb1">Mã loại sản phẩm</asp:Label>
+                      </td>
+                      <td class="auto-style1">
+                          <asp:TextBox runat="server" ID="txtMaLoai" ReadOnly="True"></asp:TextBox>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <asp:Label runat="server" ID="lb2">Tên loại sản phẩm</asp:Label>
+                      </td>
+                      <td class="auto-style1">
+                          <asp:TextBox runat="server" ID="txtTenLoai"></asp:TextBox>
+                         </td>
+                  </tr>
+                  <tr>
+                      <td colspan="2" align="center">
+                          <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" />
+                          <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" />
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <diV>
+
+          </diV>
+
+          <div>
+              <table>
+
+              </table>
+          </div>
       </div>
      </asp:View>
                          <asp:View runat="server" ID="view2">

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Xml.Linq;
+using System.Web.Mvc;
 namespace BaiTap
 {
     public partial class WebForm6 : System.Web.UI.Page
@@ -41,6 +42,16 @@ namespace BaiTap
             GridViewRow row = gri1.SelectedRow;
             t1.Text = row.Cells[0].Text; // Cột ID
             t2.Text = row.Cells[1].Text; // Cột Tên Sản Phẩm
+        }
+
+        protected void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnHuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
        
