@@ -220,6 +220,7 @@
     <Content Include="WebForm6.aspx" />
     <Content Include="WebForm7.aspx" />
     <Content Include="WebForm8.aspx" />
+    <Content Include="WebForm9.aspx" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
@@ -372,6 +373,13 @@
     </Compile>
     <Compile Include="WebForm8.aspx.designer.cs">
       <DependentUpon>WebForm8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm9.aspx.cs">
+      <DependentUpon>WebForm9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm9.aspx.designer.cs">
+      <DependentUpon>WebForm9.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

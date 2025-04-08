@@ -12,7 +12,10 @@ namespace BaiTap
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
+
+        
         SqlConnection conn = new SqlConnection(@"Data Source=THANG\SQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;TrustServerCertificate=True");
+        public DataTable sanpham;
         protected void Page_Load(object sender, EventArgs e)
         {
    
@@ -25,6 +28,10 @@ namespace BaiTap
                 adapter.Fill(dt);
                 gri1.DataSource = dt;
                 gri1.DataBind();
+                SqlDataAdapter adapter1 = new SqlDataAdapter("Select * From sanpham", conn);
+                sanpham = new DataTable();
+                adapter1.Fill(sanpham);
+
                 conn.Close();
 
 

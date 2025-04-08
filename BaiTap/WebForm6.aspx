@@ -16,14 +16,13 @@
         }
         .trai
         {
-               width: 200px;
+               width: 100%px;
     border: 2px solid black;
     text-align: left;
     padding: 0px;
     background-color: white;
-   
     background-color:azure;
-    float:left;
+   
           min-height:200px;  
        
         }
@@ -39,6 +38,7 @@
         } 
         .conten{
             width:auto;
+            height:auto;
         }
         .auto-style1 {
             width: 128px;
@@ -54,19 +54,18 @@
             SHOPACCABC.COM NƠI BÁN ACCOUNT-ITEMS-CÀY THUÊ-TIỀN TỆ TRONG GAME UY TÍN
         </div>
             </header>
-        <div class="conten" style="place-content:left;place-items:left">
+        <div class="conten" style="">
             <div class="trai">
                 <h3  style="background-color:aliceblue;width:100%; height: 30px; margin-left: 0px;text-align:left;padding:0px;color:red">DANH MỤC QUẢN LÝ</h3>
-                <div style="padding-bottom:10px">
+          
                 <asp:LinkButton runat="server" Style="text-decoration:none;color:black;font-weight:bold;height:30px" PostBackUrl="~/WebForm1.aspx">Trang chủ</asp:LinkButton>
-                </div>
-                <div  style="padding-bottom:10px">
-                <asp:LinkButton runat="server"  Style="text-decoration:none;color:blue;font-weight:bold;display:flow;" CommandArgument="0" OnClick="doi">Items</asp:LinkButton>
                 
-                </div >
-               <div style="padding-bottom:10px"> <asp:LinkButton runat="server" Style="text-decoration:none;color:lightgreen;font-weight:bold" CommandArgument="1" OnClick="doi">Account</asp:LinkButton></div>
-               <div style="padding-bottom:10px"><asp:LinkButton runat="server" Style="text-decoration:none;color:darkblue;font-weight:bold" CommandArgument="2" OnClick="doi"> Cày thuê</asp:LinkButton></div>
-              <div style="padding-bottom:10px"><asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold" CommandArgument="3" OnClick="doi"> Tiền tệ trong các game</asp:LinkButton></div>
+            
+                <asp:LinkButton runat="server"  Style="text-decoration:none;color:blue;font-weight:bold;display:flow;" CommandArgument="0" OnClick="doi">Items</asp:LinkButton>
+             
+           <asp:LinkButton runat="server" Style="text-decoration:none;color:lightgreen;font-weight:bold" CommandArgument="1" OnClick="doi">Account</asp:LinkButton>
+               <asp:LinkButton runat="server" Style="text-decoration:none;color:darkblue;font-weight:bold" CommandArgument="2" OnClick="doi"> Cày thuê</asp:LinkButton>
+              <asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold" CommandArgument="3" OnClick="doi"> Tiền tệ trong các game</asp:LinkButton>
             </div>
             <div class="phai">
                 <asp:MultiView runat="server" ID="viewthunhat">
@@ -103,35 +102,84 @@
               <table>
                   <tr>
                       <td>
-                          <asp:Label runat="server" ID="lb1">Mã loại sản phẩm</asp:Label>
+                          <asp:Label runat="server" ID="lb1">Mã sản phẩm</asp:Label>
                       </td>
                       <td class="auto-style1">
                           <asp:TextBox runat="server" ID="txtMaLoai" ReadOnly="True"></asp:TextBox>
                       </td>
+                       <td>Hình</td>
+                <td><asp:TextBox runat="server"></asp:TextBox></td>
                   </tr>
                   <tr>
                       <td>
-                          <asp:Label runat="server" ID="lb2">Tên loại sản phẩm</asp:Label>
+                          <asp:Label runat="server" ID="lb2">Mã loại</asp:Label>
                       </td>
                       <td class="auto-style1">
                           <asp:TextBox runat="server" ID="txtTenLoai"></asp:TextBox>
                          </td>
+                                      <td>Mô tả</td>
+                <td><asp:TextBox runat="server"></asp:TextBox></td>
                   </tr>
+              
+                     <tr>
+                <td>Mã đơn vị sản xuất</td>
+                <td> <asp:TextBox runat="server"></asp:TextBox></td>
+                              <td>Thời gia bảo hành</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tên sản phẩm</td>
+                <td><asp:TextBox runat="server"></asp:TextBox></td>
+                <td>Đơn Giá</td>
+                <td><asp:TextBox runat="server"></asp:TextBox></td>
+               
+            </tr>
+         
                   <tr>
-                      <td colspan="2" align="center">
+                      <td>Quảng Cáo</td>
+                      <td><asp:TextBox runat="server"></asp:TextBox></td>
+                        <td colspan="2" align="center">
                           <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" />
                           <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" />
                       </td>
                   </tr>
-              </table>
+                  </table>
           </div>
-          <diV>
-
-          </diV>
+         
 
           <div>
-              <table>
-
+              <table border="1px">
+                       <tr>
+            <td>Mã sản phẩm</td>
+            <td>Mã loại sản phẩm</td>
+            <td>Đơn vị sản xuất</td>
+            <td>Tên sản phẩm</td>
+            <td>Hình</td>
+            <td>Mô tả</td>
+            <td>Thời gian bảo hành</td>
+            <td>Đơn giá</td>
+            <td>Quảng cáo</td>
+        </tr>
+                       
+                           <%
+                               if (sanpham != null)
+                               {
+                                   for(int i =0; i < sanpham.Rows.Count; i++)
+                                   {
+                                       %>
+                  <tr>
+            <td><%=sanpham.Rows[i]["masanpham"] %></td>
+            <td><%=sanpham.Rows[i]["maloaisanpham"]%></td>
+            <td><%=sanpham.Rows[i]["madonvisanxuat"] %></td>
+            <td><%=sanpham.Rows[i]["tensanpham"]%></td>
+            <td><%=sanpham.Rows[i]["hinh"]%></td>
+           <td><%=sanpham.Rows[i]["mota"]%></td>
+            <td><%=sanpham.Rows[i]["thoigianbaohanh"]%></td><td><% %></td>
+           <td><%=sanpham.Rows[i]["dongia"]%></td>
+            <td><%=sanpham.Rows[i]["quangcao"]%></td>
+        </tr>
+           <%       } 
+                }%>
               </table>
           </div>
       </div>
@@ -149,7 +197,7 @@
          <h2>
              CÁC LOẠI CÀY THUÊ HIỆN CÓ
          </h2>
-         <a>
+         <a> 
              TẤT CẢ CÁC LOẠI CÀY THUÊ HIỆN CÓ
 
          </a>
