@@ -14,7 +14,7 @@ namespace BaiTap
     {
 
         
-        SqlConnection conn = new SqlConnection(@"Data Source=localhostSQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;TrustServerCertificate=True");
         public DataTable sanpham;
         public DataTable loaisanpham;
         public DataTable khachhang;
@@ -71,6 +71,26 @@ namespace BaiTap
         protected void btnHuy_Click(object sender, EventArgs e)
         {
 
+        }
+        protected void btnXoa_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(t1.Text);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Delete From loaisanpham Where ID = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect(Request.RawUrl);
+        }
+        protected void btnThem_Click(object sender, EventArgs e)
+        {
+            string ten = t2.Text;
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Insert Into loaisanpham (Ten) Values (@ten)", conn);
+            cmd.Parameters.AddWithValue("@ten", ten);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect(Request.RawUrl);
         }
     }
        

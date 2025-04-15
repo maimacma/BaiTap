@@ -69,6 +69,7 @@
            </div>
                 </div>
             <div class="phai">
+   
                 <asp:MultiView runat="server" ID="viewthunhat">
                     <asp:View runat="server" ID="view0">
                         <h2>Danh Mục Loại Sản Phẩm</h2>
@@ -148,7 +149,7 @@
            
          
                   <tr>
-                     <td colspan="8" align="center">
+                     <td colspan="6" align="center">
     <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" />
     <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" />
 </td>
@@ -237,10 +238,10 @@
                                          <td>Đơn giá</td>
                                          <td>Thành tiền</td>
                                      </tr>
-                                     <%int a = chitiethoadon.Rows.Count;
+                                     <%
                                          if (chitiethoadon != null ) {
 
-                                             for (int b = 0; b < a; b++)
+                                             for (int b = 0; b < chitiethoadon.Rows.Count; b++)
                                              { %>
                                        <tr>
         <td><%=chitiethoadon.Rows[b]["masanpham"] %></td>
