@@ -14,8 +14,12 @@ namespace BaiTap
     {
 
         
-        SqlConnection conn = new SqlConnection(@"Data Source=THANG\SQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=localhostSQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;TrustServerCertificate=True");
         public DataTable sanpham;
+        public DataTable loaisanpham;
+        public DataTable khachhang;
+        public DataTable nhacungcap;
+        public DataTable chitiethoadon;
         protected void Page_Load(object sender, EventArgs e)
         {
    
@@ -31,7 +35,15 @@ namespace BaiTap
                 SqlDataAdapter adapter1 = new SqlDataAdapter("Select * From sanpham", conn);
                 sanpham = new DataTable();
                 adapter1.Fill(sanpham);
-
+                SqlDataAdapter adapter2 = new SqlDataAdapter("Select * From khachhang", conn);
+                khachhang = new DataTable();
+                adapter2.Fill(khachhang);
+                SqlDataAdapter adapter3 = new SqlDataAdapter("Select * From donvisanxuat", conn);
+                nhacungcap = new DataTable();
+                adapter3.Fill(nhacungcap);
+                SqlDataAdapter adapter4 = new SqlDataAdapter("Select * From chitiethoadon", conn);
+                chitiethoadon = new DataTable();
+                adapter4.Fill(chitiethoadon);
                 conn.Close();
 
 
