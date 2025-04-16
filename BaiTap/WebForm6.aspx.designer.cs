@@ -78,6 +78,15 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.Button b2;
 
         /// <summary>
+        /// b3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button b3;
+
+        /// <summary>
         /// gri1 control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.Label lb1;
 
         /// <summary>
-        /// txtMaLoai control.
+        /// tmasanpham control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaLoai;
+        protected global::System.Web.UI.WebControls.TextBox tmasanpham;
 
         /// <summary>
         /// lb2 control.
@@ -123,13 +132,58 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.Label lb2;
 
         /// <summary>
-        /// txtTenLoai control.
+        /// tmalooai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenLoai;
+        protected global::System.Web.UI.WebControls.TextBox tmalooai;
+
+        /// <summary>
+        /// tmota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tmota;
+
+        /// <summary>
+        /// ttensanpham control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ttensanpham;
+
+        /// <summary>
+        /// tdongia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tdongia;
+
+        /// <summary>
+        /// tmadonvisanxuat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tmadonvisanxuat;
+
+        /// <summary>
+        /// tquangcao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tquangcao;
 
         /// <summary>
         /// btnLuu control.
@@ -150,6 +204,15 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.Button btnHuy;
 
         /// <summary>
+        /// btnXoa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnXoa;
+
+        /// <summary>
         /// view2 control.
         /// </summary>
         /// <remarks>
@@ -159,49 +222,49 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.View view2;
 
         /// <summary>
-        /// t8 control.
+        /// tmaloaisnapham control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox t8;
+        protected global::System.Web.UI.WebControls.TextBox tmaloaisnapham;
 
         /// <summary>
-        /// t12 control.
+        /// tthanhtien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox t12;
+        protected global::System.Web.UI.WebControls.TextBox tthanhtien;
 
         /// <summary>
-        /// t9 control.
+        /// tmahoadon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox t9;
+        protected global::System.Web.UI.WebControls.TextBox tmahoadon;
 
         /// <summary>
-        /// t11 control.
+        /// tdongia1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox t11;
+        protected global::System.Web.UI.WebControls.TextBox tdongia1;
 
         /// <summary>
-        /// t10 control.
+        /// tsoluong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox t10;
+        protected global::System.Web.UI.WebControls.TextBox tsoluong;
 
         /// <summary>
         /// Button1 control.
@@ -229,5 +292,59 @@ namespace BaiTap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View view3;
+
+        /// <summary>
+        /// lb3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb3;
+
+        /// <summary>
+        /// txtTenTaiKhoan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTenTaiKhoan;
+
+        /// <summary>
+        /// lb4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb4;
+
+        /// <summary>
+        /// txtMatKhau control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMatKhau;
+
+        /// <summary>
+        /// btaikhoan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btaikhoan;
+
+        /// <summary>
+        /// bhuy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton bhuy;
     }
 }

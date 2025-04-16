@@ -74,17 +74,18 @@
                     <asp:View runat="server" ID="view0">
                         <h2>Danh Mục Loại Sản Phẩm</h2>
                         <div style="display:flex;flex:1PX">
-                        <div style="width:30%;place-items:center;place-content:center;text-align:center;padding-top:30PX;padding-left:30PX">
+                        <div style="width:30%;place-items:center;place-content:center;text-align:center;padding-left:30PX">
                             <asp:Label runat="server"> Mã loại sản phẩm</asp:Label>
                 <asp:TextBox runat="server" CssClass="chinhbox" ID="t1">
 
                 </asp:TextBox>
                             <asp:Label runat="server">Tên loại sản phẩm</asp:Label>
                         <asp:TextBox runat="server" CssClass="chinhbox" ID="t2"></asp:TextBox>
-                        <asp:Button runat="server" Text="Thêm" CssClass="cn" ID="b1"/>
-                            <asp:Button  runat="server" Text="hủy" ID="b2" CssClass="cn"/>
+                        <asp:Button runat="server" Text="Thêm" CssClass="cn" ID="b1" OnClick="btnThem_Click"/>
+                            <asp:Button  runat="server" Text="hủy" ID="b2" CssClass="cn" OnClick="b2_Click" />
+                            <asp:Button runat="server" Text="Xóa" ID="b3" CssClass="cn" OnClick="btnXoa_Click" />
                             </div>
-                            <div style="place-items:center;place-content:right;width:100%;margin-bottom: 2px;padding-top:30PX">
+                            <div style="place-items:center;place-content:right;width:100%;margin-bottom: 2px;">
                                 <asp:GridView ID="gri1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gri1_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField ControlStyle-Width="100%" DataField="maloaisanpham" HeaderText="Mã Lọai Sản Phẩm">
@@ -110,15 +111,15 @@
                           <asp:Label runat="server" ID="lb1">Mã sản phẩm</asp:Label>
                       </td>
                       <td class="auto-style1">
-                          <asp:TextBox runat="server" ID="txtMaLoai" ReadOnly="True"></asp:TextBox>
+                          <asp:TextBox runat="server" ID="tmasanpham" ReadOnly="True" OnTextChanged="txtMaLoai_TextChanged"></asp:TextBox>
                       </td>
                        <td>Hình</td>
-                <td><asp:TextBox runat="server"></asp:TextBox></td>
+                <td><input type="file"/></td>
                         <td>
       <asp:Label runat="server" ID="lb2">Mã loại</asp:Label>
   </td>
   <td class="auto-style1">
-      <asp:TextBox runat="server" ID="txtTenLoai"></asp:TextBox>
+      <asp:TextBox runat="server" ID="tmalooai"></asp:TextBox>
      </td>
    
    
@@ -126,21 +127,21 @@
                   <tr>
                     
                                       <td>Mô tả</td>
-                <td><asp:TextBox runat="server"></asp:TextBox></td>
+                <td><asp:TextBox runat="server" ID="tmota"></asp:TextBox></td>
                        <td>Tên sản phẩm</td>
- <td><asp:TextBox runat="server"></asp:TextBox></td>
+ <td><asp:TextBox runat="server" ID="ttensanpham"></asp:TextBox></td>
                         <td>Đơn Giá</td>
-  <td><asp:TextBox runat="server"></asp:TextBox></td>
+  <td><asp:TextBox runat="server" ID="tdongia"></asp:TextBox></td>
                   </tr>
               
                      <tr>
                 <td>Mã đơn vị sản xuất</td>
-                <td> <asp:TextBox runat="server"></asp:TextBox></td>
+                <td> <asp:TextBox runat="server" Height="22px" ID="tmadonvisanxuat"></asp:TextBox></td>
                               <td>Thời gia bảo hành</td><td><asp:TextBox runat="server"></asp:TextBox></td>
                          
                                                <td>Quảng Cáo</td>
 
-<td><asp:TextBox runat="server"></asp:TextBox></td>
+<td><asp:TextBox runat="server" ID="tquangcao"></asp:TextBox></td>
             
             </tr>
          
@@ -150,8 +151,9 @@
          
                   <tr>
                      <td colspan="6" align="center">
-    <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" />
-    <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" />
+    <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" style="margin-right:30px"/>
+    <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" style="margin-right:30px"/>
+                         <asp:Button runat="server" ID="btnXoa" Text="Xóa" OnClick="btnXoa_Click" Style="margin-right: 30px" />
 </td>
                   </tr>
                   </table>
@@ -201,22 +203,22 @@
      <table>
          <tr>
              <td>Mã loại sản phẩm</td>
-             <td><asp:TextBox runat="server" ID="t8"></asp:TextBox></td>
+             <td><asp:TextBox runat="server" ID="tmaloaisnapham"></asp:TextBox></td>
                  <td>Thành tiền</td>
-             <td><asp:TextBox runat="server" ID="t12"></asp:TextBox></td>
+             <td><asp:TextBox runat="server" ID="tthanhtien"></asp:TextBox></td>
              </tr>
             <tr>
     <td>Mã hoá đơn</td>
                 <td>
-                    <asp:TextBox runat="server" ID="t9"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="tmahoadon"></asp:TextBox>
                 </td>
                     <td>Đơn giá</td>
-                 <td><asp:TextBox runat="server" ID="t11"></asp:TextBox></td>
+                 <td><asp:TextBox runat="server" ID="tdongia1"></asp:TextBox></td>
                 </tr>
             
              <tr>
     <td>Số lượng</td>
-                 <td><asp:TextBox runat="server" ID="t10"></asp:TextBox></td>
+                 <td><asp:TextBox runat="server" ID="tsoluong"></asp:TextBox></td>
                               <td colspan="2">
                      <asp:Button runat="server" ID="Button1" Text="Lưu" OnClick="btnLuu_Click" />
 <asp:Button runat="server" ID="Button2" Text="Hủy" OnClick="btnHuy_Click" />
@@ -257,19 +259,33 @@
                              </div>
      </asp:View>
                          <asp:View runat="server" ID="view3">
-                             <h2>Danh Mục Hóa Đơn</h2>
+                             <h2>Danh Mục Tài Khoản</h2>
                                    <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
+                                       <tr>
+                                           <td>
+                                               <asp:Label runat="server" ID="lb3">Tên tài khoản</asp:Label>
+                                           </td>
+                                           <td>
+                                               <asp:TextBox runat="server" ID="txtTenTaiKhoan"></asp:TextBox>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td>
+                                               <asp:Label runat="server" ID="lb4">Mật khẩu</asp:Label>
+                                           </td>
+                                           <td>
+                                               <asp:TextBox runat="server" ID="txtMatKhau"></asp:TextBox>
+                                           </td>
+                                           </tr>
+                                       <tr
+>
+                                           <td colspan="2">
+                                               <button runat="server" id="btaikhoan">Lưu</button>
+                                                 <button runat="server" id="bhuy" onclick="">Hủy</button>
+                                           </td>
+                                       </tr>                                       </table>
+
+            
      </asp:View>
 
                 </asp:MultiView>

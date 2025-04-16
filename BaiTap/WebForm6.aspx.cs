@@ -76,7 +76,7 @@ namespace BaiTap
         {
             int id = Convert.ToInt32(t1.Text);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Delete From loaisanpham Where ID = @id", conn);
+            SqlCommand cmd = new SqlCommand("Delete From loaisanpham Where maloaisanpham = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -86,12 +86,20 @@ namespace BaiTap
         {
             string ten = t2.Text;
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Insert Into loaisanpham (Ten) Values (@ten)", conn);
+            SqlCommand cmd = new SqlCommand("Insert Into loaisanpham  Values ('"+Convert.ToInt32(t1.Text)+"','"+t2.Text+"')", conn);
             cmd.Parameters.AddWithValue("@ten", ten);
             cmd.ExecuteNonQuery();
             conn.Close();
             Response.Redirect(Request.RawUrl);
         }
+
+        protected void b2_Click(object sender, EventArgs e)
+        {
+            t1.Text = "";
+            t2.Text = "";
+        }
+
+       
     }
        
 }
