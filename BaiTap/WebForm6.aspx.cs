@@ -20,6 +20,8 @@ namespace BaiTap
         public DataTable khachhang;
         public DataTable nhacungcap;
         public DataTable chitiethoadon;
+        public DataTable taikhoan;
+        public DataTable hoadon;
         protected void Page_Load(object sender, EventArgs e)
         {
    
@@ -44,6 +46,12 @@ namespace BaiTap
                 SqlDataAdapter adapter4 = new SqlDataAdapter("Select * From chitiethoadon", conn);
                 chitiethoadon = new DataTable();
                 adapter4.Fill(chitiethoadon);
+                SqlDataAdapter adapter5 = new SqlDataAdapter("Select * From taikhoan", conn);
+                taikhoan = new DataTable();
+                adapter5.Fill(taikhoan);
+                SqlDataAdapter adapter6 = new SqlDataAdapter("Select * From hoadon", conn);
+                hoadon = new DataTable();
+                adapter6.Fill(hoadon);
                 conn.Close();
 
 
@@ -55,6 +63,31 @@ namespace BaiTap
             LinkButton button = (LinkButton)sender;
             int trang = Convert.ToInt32(button.CommandArgument);
             viewthunhat.ActiveViewIndex = trang;
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("Select * From loaisanpham", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            gri1.DataSource = dt;
+            gri1.DataBind();
+            SqlDataAdapter adapter1 = new SqlDataAdapter("Select * From sanpham", conn);
+            sanpham = new DataTable();
+            adapter1.Fill(sanpham);
+            SqlDataAdapter adapter2 = new SqlDataAdapter("Select * From khachhang", conn);
+            khachhang = new DataTable();
+            adapter2.Fill(khachhang);
+            SqlDataAdapter adapter3 = new SqlDataAdapter("Select * From donvisanxuat", conn);
+            nhacungcap = new DataTable();
+            adapter3.Fill(nhacungcap);
+            SqlDataAdapter adapter4 = new SqlDataAdapter("Select * From chitiethoadon", conn);
+            chitiethoadon = new DataTable();
+            adapter4.Fill(chitiethoadon);
+            SqlDataAdapter adapter5 = new SqlDataAdapter("Select * From taikhoan", conn);
+            taikhoan = new DataTable();
+            adapter5.Fill(taikhoan);
+            SqlDataAdapter adapter6 = new SqlDataAdapter("Select * From hoadon", conn);
+            hoadon = new DataTable();
+            adapter6.Fill(hoadon);
+            conn.Close();
         }
         protected void gri1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -1,0 +1,164 @@
+﻿Create DATABASE Thang
+use Thang
+create table khachhang
+(
+ makh nvarchar(5) primary key,
+ hoten nvarchar(200) not null,
+ diachi nvarchar(200) not null,
+ SDT nvarchar(200)
+);
+create table donvisanxuat
+(
+ madonvisanxuat nvarchar(200) PRIMARY KEY,
+ tendonvisanxuat nvarchar(200) not null
+)
+create table hoadon
+(
+ mahoadon int primary key,
+ makh nvarchar(5) not null,
+ ngaydathang  date not null,
+ ngaygiaohang  date not null,
+ tongtien decimal(18,2) not null,
+ ghichu nvarchar(1000) ,
+ CONSTRAINT fk_hd_kh
+ FOREIGN KEY (makh)
+ REFERENCES khachhang  (makh)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+);
+
+create table loaisanpham
+(
+ maloaisanpham nvarchar(200) PRIMARY KEY,
+ tenloaisanpham nvarchar(200) not null
+)
+create table sanpham
+(
+ masanpham nvarchar(200)   PRIMARY KEY,
+ maloaisanpham nvarchar(200) not null,
+ madonvisanxuat nvarchar(200) not null,
+ tensanpham nvarchar(200) not null,
+ hinh nvarchar(200) not null,
+ mota nvarchar(1000) not null,
+ thoigianbaohanh int not null,
+ dongia decimal(18,2) not null,
+ quangcao bit,
+ CONSTRAINT fk_sp_lsp
+ FOREIGN KEY (maloaisanpham)
+ REFERENCES loaisanpham (maloaisanpham)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE,
+ CONSTRAINT fk_sp_dvsx
+ FOREIGN KEY (madonvisanxuat)
+ REFERENCES donvisanxuat (madonvisanxuat)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+);
+create table chitiethoadon
+(
+ masanpham nvarchar(200) not null,
+ mahoadon int not null,
+ soluong int not null,
+ dongia  decimal(18,2) not null,
+ thanhtien decimal(18,2) not null,
+ CONSTRAINT fk_cthd_sp
+ FOREIGN KEY (masanpham)
+ REFERENCES sanpham (masanpham)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE,
+ CONSTRAINT fk_cthd_hd
+ FOREIGN KEY (mahoadon)
+ REFERENCES hoadon (mahoadon)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+);
+create table taikhoan
+(
+ tendangnhap nvarchar(200) PRIMARY KEY,
+ matkhau nvarchar(200) not null
+)
+insert into taikhoan  values
+('abc','12346789'),
+('abcd','12346789')
+insert into loaisanpham values
+('001','Taikhoangame'),
+('002','Items'),
+('003','Caythue'),
+('004','Bảnobux')
+insert into donvisanxuat values 
+('abc1','donviabc'),
+('abc2','donviabc1'),
+('abc3','donviabc2'),
+('abc4','donviabc3')
+insert into khachhang values 
+('KH001', 'Nguyễn Văn A', '0901234567', 'Hà Nội, Việt Nam'),
+('KH002', 'Trần Thị B', '0902345678', 'Hồ Chí Minh, Việt Nam'),
+('KH003', 'Lê Minh C',  '0903456789', 'Đà Nẵng, Việt Nam'),
+('KH004', 'Phạm Thanh D',  '0904567890', 'Hải Phòng, Việt Nam'),
+('KH005', 'Vũ Hoàng E',  '0905678901', 'Cần Thơ, Việt Nam'),
+('KH006', 'Đỗ Thị F', '0906789012', 'Nha Trang, Việt Nam'),
+('KH007', 'Bùi Văn G', '0907890123', 'Quảng Ninh, Việt Nam'),
+('KH008', 'Ngô Thị H',  '0908901234', 'Bình Dương, Việt Nam'),
+('KH009', 'Hồ Minh I', '0909012345', 'Long An, Việt Nam'),
+('KH010', 'Cao Thanh J', '0900123456', 'Vĩnh Long, Việt Nam')
+insert into sanpham values 
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','',''),
+('','','','','','','','','')
+insert into hoadon values
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','','')
+insert into chitiethoadon values
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','',''),
+('','','','','','')
+
