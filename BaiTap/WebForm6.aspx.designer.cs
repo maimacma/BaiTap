@@ -141,15 +141,6 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox tmalooai;
 
         /// <summary>
-        /// tmota control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tmota;
-
-        /// <summary>
         /// ttensanpham control.
         /// </summary>
         /// <remarks>
@@ -168,6 +159,15 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox tdongia;
 
         /// <summary>
+        /// tquangcao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tquangcao;
+
+        /// <summary>
         /// tmadonvisanxuat control.
         /// </summary>
         /// <remarks>
@@ -177,13 +177,13 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox tmadonvisanxuat;
 
         /// <summary>
-        /// tquangcao control.
+        /// tmota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tquangcao;
+        protected global::System.Web.UI.WebControls.TextBox tmota;
 
         /// <summary>
         /// btnLuu control.
@@ -357,22 +357,31 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox txtMaHoaDon;
 
         /// <summary>
-        /// lb8 control.
+        /// ttongtien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb8;
+        protected global::System.Web.UI.WebControls.TextBox ttongtien;
 
         /// <summary>
-        /// tghichu control.
+        /// lb7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tghichu;
+        protected global::System.Web.UI.WebControls.Label lb7;
+
+        /// <summary>
+        /// tgiaohang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tgiaohang;
 
         /// <summary>
         /// lb control.
@@ -393,15 +402,6 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox tmakhachhang;
 
         /// <summary>
-        /// ttongtien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ttongtien;
-
-        /// <summary>
         /// lb6 control.
         /// </summary>
         /// <remarks>
@@ -420,22 +420,31 @@ namespace BaiTap
         protected global::System.Web.UI.WebControls.TextBox tdathang;
 
         /// <summary>
-        /// lb7 control.
+        /// ttien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb7;
+        protected global::System.Web.UI.WebControls.TextBox ttien;
 
         /// <summary>
-        /// tgiaohang control.
+        /// lb8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tgiaohang;
+        protected global::System.Web.UI.WebControls.Label lb8;
+
+        /// <summary>
+        /// tghichu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tghichu;
 
         /// <summary>
         /// btnLuuHoaDon control.
@@ -571,6 +580,42 @@ namespace BaiTap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTenKhachHang;
+
+        /// <summary>
+        /// lb11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb11;
+
+        /// <summary>
+        /// txtDiaChi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
+
+        /// <summary>
+        /// lb12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb12;
+
+        /// <summary>
+        /// txtDienThoai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDienThoai;
 
         /// <summary>
         /// btnLuuKhachHang control.

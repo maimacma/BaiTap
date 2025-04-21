@@ -66,7 +66,7 @@
                 <asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold;padding-right:30px" CommandArgument="3" OnClick="doi"> Tài khoản</asp:LinkButton>
               <asp:LinkButton runat="server" Style="text-decoration: none; color: darkviolet; font-weight: bold; padding-right: 30px" CommandArgument="4" OnClick="doi">Hóa đơn</asp:LinkButton>
               <asp:LinkButton Text="Chi tiết hóa đơn"  runat="server" Style="text-decoration: none; color: darkviolet; font-weight: bold; padding-right: 30px" CommandArgument="5" OnClick="doi"> </asp:LinkButton>
-               <asp:LinkButton runat="server" Style="text-decoration:none;color:brown;font-weight:bold;padding-right:30px" CommandArgument="6" OnClick="doi"> Khách hàng</asp:LinkButton>
+               <asp:LinkButton runat="server" Style="text-decoration:none;color:ActiveBorder;font-weight:bold;padding-right:30px" CommandArgument="6" OnClick="doi"> Khách hàng</asp:LinkButton>
            </div>
                 </div>
             <div class="phai">
@@ -106,7 +106,7 @@
     </h2>
           <div>
 
-              <table>
+               <table>
                   <tr>
                       <td>
                           <asp:Label runat="server" ID="lb1">Mã sản phẩm</asp:Label>
@@ -115,46 +115,45 @@
                           <asp:TextBox runat="server" ID="tmasanpham" ReadOnly="True"></asp:TextBox>
                       </td>
                        <td>Hình</td>
-                <td><input type="file"/></td>
+                <td><input type="file" id="upload"/></td>
                         <td>
       <asp:Label runat="server" ID="lb2">Mã loại</asp:Label>
   </td>
   <td class="auto-style1">
       <asp:TextBox runat="server" ID="tmalooai"></asp:TextBox>
-     </td>
+      </td>
+
+  
    
-   
+       <td>Thời gia bảo hành</td><td><asp:TextBox runat="server"></asp:TextBox></td>
                   </tr>
                   <tr>
                     
-                                      <td>Mô tả</td>
-                <td><asp:TextBox runat="server" ID="tmota"></asp:TextBox></td>
-                       <td>Tên sản phẩm</td>
- <td><asp:TextBox runat="server" ID="ttensanpham"></asp:TextBox></td>
-                        <td>Đơn Giá</td>
-  <td><asp:TextBox runat="server" ID="tdongia"></asp:TextBox></td>
+   
+                       <td class="auto-style2">Tên sản phẩm</td>
+ <td class="auto-style2"><asp:TextBox runat="server" ID="ttensanpham"></asp:TextBox></td>
+                        <td class="auto-style2">Đơn Giá</td>
+  <td class="auto-style2"><asp:TextBox runat="server" ID="tdongia"></asp:TextBox></td>
+                                                            <td class="auto-style2">Quảng Cáo</td>
+
+<td class="auto-style2"><asp:TextBox runat="server" ID="tquangcao"></asp:TextBox></td>
+                          <td class="auto-style2">Mã đơn vị sản xuất</td>
+                <td class="auto-style2"> <asp:TextBox runat="server" Height="22px" ID="tmadonvisanxuat"></asp:TextBox></td>
                   </tr>
               
                      <tr>
-                <td>Mã đơn vị sản xuất</td>
-                <td> <asp:TextBox runat="server" Height="22px" ID="tmadonvisanxuat"></asp:TextBox></td>
-                              <td>Thời gia bảo hành</td><td><asp:TextBox runat="server"></asp:TextBox></td>
-                         
-                                               <td>Quảng Cáo</td>
-
-<td><asp:TextBox runat="server" ID="tquangcao"></asp:TextBox></td>
             
-            </tr>
-         
+                          
+                         
                
-              
-           
-         
+                                               <td >Mô tả</td>
+                <td colspan="7"><asp:TextBox runat="server" ID="tmota" TextMode="MultiLine" Width="100%" ></asp:TextBox></td>
+            </tr>
                   <tr>
-                     <td colspan="6" align="center">
-    <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" style="margin-right:30px"/>
-    <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" style="margin-right:30px"/>
-                         <asp:Button runat="server" ID="btnXoa" Text="Xóa" OnClick="btnXoa_Click" Style="margin-right: 30px" />
+                     <td colspan="8" align="center">
+    <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" style="margin-right:30px;width:50px;height:40px"/>
+    <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" style="margin-right:30px;width:50px;height:40px"/>
+                         <asp:Button runat="server" ID="btnXoa" Text="Xóa" OnClick="btnXoa_Click" Style="margin-right: 30px;width:50px;height:40px" />
 </td>
                   </tr>
                   </table>
@@ -186,7 +185,7 @@
             <td><%=sanpham.Rows[i]["maloaisanpham"]%></td>
             <td><%=sanpham.Rows[i]["madonvisanxuat"] %></td>
             <td><%=sanpham.Rows[i]["tensanpham"]%></td>
-            <td><%=sanpham.Rows[i]["hinh"]%></td>
+            <td><img src='<%="../anh/"+sanpham.Rows[i]["hinh"]%>' width="100"/></td>
            <td><%=sanpham.Rows[i]["mota"]%></td>
             <td><%=sanpham.Rows[i]["thoigianbaohanh"]%></td>
            <td><%=sanpham.Rows[i]["dongia"]%></td>
@@ -311,12 +310,20 @@
                                 <td>
                                     <asp:TextBox runat="server" ID="txtMaHoaDon"></asp:TextBox>
                                 </td>
-                                  <td>
-      <asp:Label runat="server" ID="lb8">Ghi chú</asp:Label>
-  </td>
-  <td>
-      <asp:TextBox runat="server" ID="tghichu"></asp:TextBox>
-  </td>
+  
+                                                                   <td>
+       Tổng tiền
+   </td>
+   <td>
+       <asp:TextBox runat="server" ID="ttongtien"></asp:TextBox>
+   </td>
+    
+                                                                <td>
+     <asp:Label runat="server" ID="lb7">Ngày giao hàng</asp:Label>
+</td>
+<td>
+    <asp:TextBox runat="server" ID="tgiaohang" OnTextChanged="tgiaohang_TextChanged" TextMode="Date"></asp:TextBox>
+</td>
                             </tr>
                             <tr>
                                 <td>
@@ -325,29 +332,28 @@
                                 <td>
                                     <asp:TextBox runat="server" ID="tmakhachhang"></asp:TextBox>
                                 </td>
-                                    <td>
-        Tổng tiền
-    </td>
-    <td>
-        <asp:TextBox runat="server" ID="ttongtien"></asp:TextBox>
-    </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="lb6">Ngày đặt hàng</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox runat="server" ID="tdathang"></asp:TextBox>
-                                </td>
-                                <td>
-    <asp:Label runat="server" ID="lb7">Ngày giao hàng</asp:Label>
+                                   <td>
+    <asp:Label runat="server" ID="lb6">Ngày đặt hàng</asp:Label>
 </td>
+<td >
+    <asp:TextBox runat="server" ID="tdathang" Style="width:99%" TextMode="DateTime"></asp:TextBox>
+</td>
+                  <td>Tổng tiền</td>             
 <td>
-    <asp:TextBox runat="server" ID="tgiaohang"></asp:TextBox>
+    <asp:TextBox runat="server" ID="ttien"></asp:TextBox>
 </td>
                             </tr>
                             <tr>
-                                <td colspan="4">
+                                                                <td>
+    <asp:Label runat="server" ID="lb8">Ghi chú</asp:Label>
+</td>
+<td colspan="5">
+    <asp:TextBox runat="server" ID="tghichu" Style="width:99%" TextMode="MultiLine"></asp:TextBox>
+</td>
+ 
+                            </tr>
+                            <tr>
+                                <td colspan="6">
                                     <button runat="server" id="btnLuuHoaDon">Lưu</button>
                                     <button runat="server" id="btnHuyHoaDon">Hủy</button>
                                 </td>
@@ -360,6 +366,7 @@
                                 <td>Mã khách hàng</td>
                                 <td>Ngày đặt hàng</td>
                                 <td>Ngày giao hàng</td>
+                                <td>Tổng tiền</td>
                                 <td>Ghi chú</td>
                             </tr>
                            
@@ -370,9 +377,10 @@
                                         { %>
                              <tr>
                                 <td><%=hoadon.Rows[d]["mahoadon"] %></td>
-                                <td><%=hoadon.Rows[d]["makhachhang"] %></td>
-                                <td><%=hoadon.Rows[d]["ngaydat"] %></td>
-                                <td><%=hoadon.Rows[d]["ngaygiao"] %></td>
+                                <td><%=hoadon.Rows[d]["makh"] %></td>
+                                <td><%=hoadon.Rows[d]["ngaydathang"] %></td>
+                                <td><%=hoadon.Rows[d]["ngaygiaohang"] %></td>
+                                 <td><%=hoadon.Rows[d]["tongtien"] %></td>
                                 <td><%=hoadon.Rows[d]["ghichu"] %></td>
                                  </tr>
                                 <%  
@@ -453,21 +461,59 @@
                                 <td>
                                     <asp:TextBox runat="server" ID="txtMaKhachHang"></asp:TextBox>
                                 </td>
+                                  <td>
+      <asp:Label runat="server" ID="lb10">Tên khách hàng</asp:Label>
+  </td>
+  <td>
+      <asp:TextBox runat="server" ID="txtTenKhachHang"></asp:TextBox>
+  </td>
                             </tr>
                             <tr>
+                              
                                 <td>
-                                    <asp:Label runat="server" ID="lb10">Tên khách hàng</asp:Label>
+                                    <asp:Label runat="server" ID="lb11">Địa chỉ</asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtDiaChi"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="txtTenKhachHang"></asp:TextBox>
+                                    <asp:Label runat="server" ID="lb12">Điện thoại</asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtDienThoai"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="4">
                                     <button runat="server" id="btnLuuKhachHang">Lưu</button>
                                     <button runat="server" id="btnHuyKhachHang">Hủy</button>
                                 </td>
                             </tr>
+                        </table>
+                        <table border="1">
+                            <tr>
+                                <td>Mã khách hàng</td>
+                            <td>Tên khách hàng</td>
+                                <td>Địa chỉ</td>
+                                <td>Điện thoại</td>
+                            </tr>
+                            <% if (khachhang != null)
+
+                                {
+                                    for (int n = 0; n < khachhang.Rows.Count; n++)
+                                    {
+
+                                    %>
+                            <tr>
+                                <td><%=khachhang.Rows[n]["makh"] %></td>
+                                <td><%=khachhang.Rows[n]["hoten"] %></td>
+                                <td><%=khachhang.Rows[n]["diachi"] %></td>
+                                <td><%=khachhang.Rows[n]["SDT"] %></td>
+
+                            </tr>
+                            <%
+
+                                    }
+                                    }%>
                         </table>
                     </asp:View>
                 </asp:MultiView>

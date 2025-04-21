@@ -160,6 +160,13 @@
     <Content Include="anh\anh3.jpg" />
     <Content Include="anh\anh4.jpg" />
     <Content Include="anh\anhbanner.jpg" />
+    <Content Include="anh\dell-xps-13-7390-i5-10210u-8gb-256gb-win10-701974-2-600x600.jpg" />
+    <Content Include="anh\iphone-15-pro-finish-select-202309-6-7inch-geo-us.jpg" />
+    <Content Include="anh\macbook-pro-14-inch-m2-pro-19-core-gpu-silver-1.jpg" />
+    <Content Include="anh\pc.jpg" />
+    <Content Include="anh\samsung-galaxy-s24-ultra-han-quoc-512gb.jpg" />
+    <Content Include="anh\ssd-kingston-nv3-1tb-m-2-pcie-gen4-x4-nvme-snv3s-1000g-01.jpg" />
+    <Content Include="anh\wk-04.jpg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />

@@ -53,9 +53,18 @@ namespace BaiTap
                 hoadon = new DataTable();
                 adapter6.Fill(hoadon);
                 conn.Close();
+                HttpPostedFile fileanh= Request.Files["upload"];
+                if (fileanh != null && fileanh.ContentLength > 0)
+                { 
+                string linkanh = Server.MapPath("../anh/") + fileanh.FileName;
+                    fileanh.SaveAs(linkanh);
+
+                }
+                tgiaohang.TextMode = TextBoxMode.DateTimeLocal;
 
 
             }
+           
         }
 
         protected void doi(object sender, EventArgs e)
@@ -88,6 +97,7 @@ namespace BaiTap
             hoadon = new DataTable();
             adapter6.Fill(hoadon);
             conn.Close();
+            
         }
         protected void gri1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,7 +142,10 @@ namespace BaiTap
             t2.Text = "";
         }
 
-       
+        protected void tgiaohang_TextChanged(object sender, EventArgs e)
+        {
+            tgiaohang.TextMode = TextBoxMode.DateTimeLocal;
+        }
     }
        
 }
