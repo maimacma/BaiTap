@@ -1,1 +1,56 @@
-https://drive.google.com/drive/folders/1dOxccQTXoDx16qbSnhkvJctsO0ivmOOV?usp=sharing
+         <table>
+                  <tr>
+                      <td>
+                          <asp:Label runat="server" ID="lb1">Mã sản phẩm</asp:Label>
+                      </td>
+                      <td class="auto-style1">
+                          <asp:TextBox runat="server" ID="tmasanpham" ReadOnly="True"></asp:TextBox>
+                      </td>
+                       <td>Hình</td>
+                <td><input type="file"/></td>
+                        <td>
+      <asp:Label runat="server" ID="lb2">Mã loại</asp:Label>
+  </td>
+  <td class="auto-style1">
+      <asp:TextBox runat="server" ID="tmalooai"></asp:TextBox>
+      </td>
+
+  
+   
+       <td>Thời gia bảo hành</td><td><asp:TextBox runat="server"></asp:TextBox></td>
+                  </tr>
+                  <tr>
+                    
+   
+                       <td class="auto-style2">Tên sản phẩm</td>
+ <td class="auto-style2"><asp:TextBox runat="server" ID="ttensanpham"></asp:TextBox></td>
+                        <td class="auto-style2">Đơn Giá</td>
+  <td class="auto-style2"><asp:TextBox runat="server" ID="tdongia"></asp:TextBox></td>
+                                                            <td class="auto-style2">Quảng Cáo</td>
+
+<td class="auto-style2"><asp:TextBox runat="server" ID="tquangcao"></asp:TextBox></td>
+                          <td class="auto-style2">Mã đơn vị sản xuất</td>
+                <td class="auto-style2"> <asp:TextBox runat="server" Height="22px" ID="tmadonvisanxuat"></asp:TextBox></td>
+                  </tr>
+              
+                     <tr>
+            
+                          
+                         
+               
+                                               <td >Mô tả</td>
+                <td colspan="7"><asp:TextBox runat="server" ID="tmota" TextMode="MultiLine" ></asp:TextBox></td>
+            </tr>
+         
+               
+              
+           
+         
+                  <tr>
+                     <td colspan="6" align="center">
+    <asp:Button runat="server" ID="btnLuu" Text="Lưu" OnClick="btnLuu_Click" style="margin-right:30px"/>
+    <asp:Button runat="server" ID="btnHuy" Text="Hủy" OnClick="btnHuy_Click" style="margin-right:30px"/>
+                         <asp:Button runat="server" ID="btnXoa" Text="Xóa" OnClick="btnXoa_Click" Style="margin-right: 30px" />
+</td>
+                  </tr>
+                  </table>
