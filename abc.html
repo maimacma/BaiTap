@@ -1,10 +1,66 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<script>
+    let mangHinh = [];
+    let mangId = [];
+    let index = 0;
+    let timer;
 
-    </head>
-    <body>
-  
+    function taiDuLieu() {
+        fetch('/api/sanphamquangcao') // đường dẫn Web API
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(sp => {
+                    mangId.push(sp.MaSanPham);
+                    mangHinh.push(sp.Hinh);
+                });
+                batDauSlide();
+            });
+    }
 
-    </body>
-</html>
+    function batDauSlide() {
+        document.getElementById('slideshow').src = "/images/" + mangHinh[index];
+        timer = setInterval(() => {
+            index = (index + 1) % mangHinh.length;
+            document.getElementById('slideshow').src = "/images/" + mangHinh[index];
+        }, 3000);
+    }
+
+    function pauseSlide() {
+        clearInterval(timer);
+    }
+
+    function resumeSlide() {
+        batDauSlide();
+    }
+
+    function xemChiTiet() {
+        let masp = mangId[index];
+        window.location.href = "/sanpham/chitiet?masanpham=" + masp;
+    }
+
+    window.onload = taiDuLieu;
+</script>
+<div>
+    <img id="slideshow" src="" width="1024" height="350"
+         onclick="xemChiTiet()" 
+         onmouseover="pauseSlide()" 
+         onmouseout="resumeSlide()" />
+</div>
+public List<SanPham> LaySanPhamQuangCao()
+{
+    List<SanPham> ds = new List<SanPham>();
+    using (SqlConnection con = new SqlConnection("your_connection_string"))
+    {
+        string sql = "SELECT masanpham, hinh FROM sanpham WHERE quangcao = 1";
+        SqlCommand cmd = new SqlCommand(sql, con);
+        con.Open();
+        SqlDataReader rd = cmd.ExecuteReader();
+        while (rd.Read())
+        {
+            SanPham sp = new SanPham();
+            sp.MaSanPham = Convert.ToInt32(rd["masanpham"]);
+            sp.Hinh = rd["hinh"].ToString();
+            ds.Add(sp);
+        }
+    }
+    return ds;
+}
