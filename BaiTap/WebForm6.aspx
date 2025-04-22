@@ -18,7 +18,6 @@
         {
         width: 100%;
     border: 2px solid black;
-    text-align: left;
     background-color: white;
     background-color:azure;
    

@@ -390,6 +390,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="api\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />

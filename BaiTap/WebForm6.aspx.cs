@@ -78,7 +78,7 @@ namespace BaiTap
             adapter.Fill(dt);
             gri1.DataSource = dt;
             gri1.DataBind();
-            SqlDataAdapter adapter1 = new SqlDataAdapter("Select * From sanpham", conn);
+            SqlDataAdapter adapter1 = new SqlDataAdapter("Select * From sanpham ", conn);
             sanpham = new DataTable();
             adapter1.Fill(sanpham);
             SqlDataAdapter adapter2 = new SqlDataAdapter("Select * From khachhang", conn);
