@@ -58,7 +58,7 @@
     </script>
 
     <img src="" name="khunghinhngang"
-         style="cursor: pointer; text-align: center; z-index: 1;width:auto;height:"
+         style="cursor: pointer; text-align: center; z-index: 1;width:100%;height:600px"
          onclick="trangchitiet();"
          onmouseover="dunghinhlai();"
          onmouseout="doihinhkhac();" />
