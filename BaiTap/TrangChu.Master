@@ -1,17 +1,86 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TrangChu.master.cs" Inherits="BaiTap.TrangChu" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Trangchu.master.cs" Inherits="BaiTap.Trangchu" %>
 
 <!DOCTYPE html>
 
 <html>
+    
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+   <link type="text/css" href="Css/StyleSheet1.css" rel="stylesheet"/>
 </head>
-<body>
+<body onload="qchuyenanh()" style="padding:0 0 0 0;margin:0 0 0 0">
     <form id="form1" runat="server">
         <div>
+                <script type="text/javascript" language="javascript" >
+                    var maid = 0;
+                    var masp = 0;
+                    var anh = 0;
+                    var manghinh = new Array();
+                    var mangid = new Array();
+                    var thoigian;
+
+       <% for (int i = 0; i < quangcao1.Rows.Count; i++) {  %>
+                    manghinh[<%=i%>] = "<%= quangcao1.Rows[i]["hinh"]%>";
+                    mangid[<%=i%>] = "<%= quangcao1.Rows[i]["masanpham"]%>";
+                    <% } %>
+                    function qchuyenanh() {
+                        if (maid >= manghinh.length)
+                            maid = 0;
+                        masp = maid;
+                        hinh = maid;
+                        document.qcao.src = "../anh/" + manghinh[hinh];
+                        thoigian = setTimeout("qchuyenanh()", 5000);
+                        maid++;
+                    }
+                    function dungqc() {
+                        clearTimeout(thoigian);
+                    }
+                    function tieptuc() {
+                        clearTimeout(thoigian);
+                        qchuyenanh();
+                    }
+                    function trangsp() {
+                        window.location = "Sanpham.aspx?masanpham=" + mangid[maid];
+                    }
+                </script>
+            <header  style="margin:0 0 0 0;padding:0 0 0 0;height:25%" >
+                <div style="margin:0 0 0 0;padding:0 0 0 0;text-align:center;place-content:center;background-color:cyan;">
+                    <a style="padding-top:60px;width:100%;text-align:center;color:black;margin: 0 0 0 0;height:100px;font-size:70px;font-weight:bold">Shopabc Nơi Bán Điện Thoại Uy Tín Nhất VN</a>
+                </div>
+                <div style="border-style: none; width:100%; height:40px;font-size:x-large;display:block">
+                    <div id="hdau" style="margin:0 0 0 0">
+                    <a href="WebForm1.aspx" style="text-decoration:none;color:burlywood;margin:0 0 0 0">SHOPABC</a>
+                     
+                        </div>
+                    <div style="width:70%;height:40px;text-align:center;place-content:center">
+                  <asp:Menu runat="server"  DynamicHorizontalOffset="0" Orientation="Horizontal" DynamicHoverStyle-ForeColor="Black" DynamicMenuItemStyle-Font-Size="XX-Large" DynamicMenuItemStyle-ForeColor="Black" ForeColor="Black" Style="text-align:center;place-items:center;width:100%" StaticEnableDefaultPopOutImage="False">
+                      <Items>
+                         
+                          <asp:MenuItem Text="Sản phẩm" Value="Sản phẩm" NavigateUrl="~/WebForm6.aspx">
+                                <asp:MenuItem Text="Điện thoại" Value="Điện thoại" NavigateUrl="~/WebForm6.aspx" />
+                              <asp:MenuItem Text="Máy tính bảng" Value="Máy tính bảng" NavigateUrl="~/WebForm6.aspx" />
+                              <asp:MenuItem Text="Laptop" Value="Laptop" NavigateUrl="~/WebForm6.aspx" />
+                              <asp:MenuItem Text="Tin tức" Value="Máy tính để bàn" NavigateUrl="~/WebForm6.aspx" />
+                              <asp:MenuItem Text="Phụ kiện" Value="Phụ kiện" NavigateUrl="~/WebForm6.aspx" />
+                              <asp:MenuItem Text="Khuyến mãi" Value="Khuyến mãi" NavigateUrl="~/WebForm6.aspx" />
+                          </asp:MenuItem>
+                          <asp:MenuItem Text=" Cửa hàng" Value="" NavigateUrl="~/WebForm6.aspx"/>
+                          <asp:MenuItem Text="Tra cứu đơn hàng" Value="" NavigateUrl="#" />
+                         <asp:MenuItem Text="Giỏ hàng" Value="" NavigateUrl="#"></asp:MenuItem>
+                          <asp:MenuItem Text="Đăng nhập" Value="" NavigateUrl="#" />
+                      </Items>
+                  </asp:Menu>
+                        </div>
+                </div>
+            </header>
+            
+            <div style="width:100%;height:500px">
+                <img name="qcao" src="" onclick="trangsp()" onmouseover="dungquc()" onmouseout="tieptuc()" style="cursor:pointer;z-index:1;text-align:center;width:100%;height:300px"/>
+            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
             </asp:ContentPlaceHolder>
         </div>
     </form>

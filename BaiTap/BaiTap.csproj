@@ -167,6 +167,16 @@
     <Content Include="anh\samsung-galaxy-s24-ultra-han-quoc-512gb.jpg" />
     <Content Include="anh\ssd-kingston-nv3-1tb-m-2-pcie-gen4-x4-nvme-snv3s-1000g-01.jpg" />
     <Content Include="anh\wk-04.jpg" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-grid.css" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-grid.min.css" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-reboot.css" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap.css" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap.min.css" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.bundle.js" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.js" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.min.js" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -219,10 +229,20 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="WebForm1.aspx" />
     <Content Include="WebForm6.aspx" />
-    <Content Include="WebForm7.aspx" />
     <Content Include="WebForm8.aspx" />
     <Content Include="WebForm9.aspx" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-grid.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.js.map" />
+    <Content Include="bootstrap-4.6.2-dist\js\bootstrap.min.js.map" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
@@ -319,19 +339,19 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm6.aspx.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm6.aspx.designer.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm7.aspx.cs">
-      <DependentUpon>WebForm7.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm7.aspx.designer.cs">
-      <DependentUpon>WebForm7.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm8.aspx.cs">
       <DependentUpon>WebForm8.aspx</DependentUpon>

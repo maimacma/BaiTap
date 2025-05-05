@@ -12,12 +12,13 @@ namespace BaiTap
 {
     public partial class WebForm9 : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection("Data Source=THANG\\SQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;");
+        private const string ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Thang;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        SqlConnection conn = new SqlConnection(ConnectionString);
         protected DataTable quangcao;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            { 
 
                 dulieu();
             }
