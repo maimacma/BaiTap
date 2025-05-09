@@ -6,58 +6,24 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 61px;
-        }
+   /* Nếu ASP.NET render theo bảng: */
+.customMenu .level1 td {
+    width: 200px;
+    text-align: center;
+}
+
     </style>
 </head>
 <body>
-   
-            <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
-
-<h3 runat="server"><%= isEdit ? "CẬP NHẬT LOẠI SẢN PHẨM" : "THÊM MỚI LOẠI SẢN PHẨM" %></h3>
-
-<form method="post" runat="server">
-    <table>
-        <tr>
-            <td>Mã loại:</td>
-            <td><asp:TextBox ID="txtMaLoai" runat="server" ReadOnly="True"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>Tên loại:</td>
-            <td><asp:TextBox ID="txtTenLoai" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <asp:Button ID="btnLuu" runat="server" Text="Lưu" OnClick="btnLuu_Click" />
-            </td>
-        </tr>
-    </table>
+    <form runat="server">
+<asp:Menu ID="MainMenu" runat="server" Orientation="Horizontal" CssClass="customMenu">
+    <Items>
+        <asp:MenuItem Text="Trang chủ" NavigateUrl="~/home.aspx"/>
+        <asp:MenuItem Text="Giới thiệu" NavigateUrl="~/about.aspx" />
+        <asp:MenuItem Text="Liên hệ" NavigateUrl="~/contact.aspx" />
+    </Items>
+</asp:Menu>
 </form>
-
-<hr />
-
-<table border="1" cellpadding="5" >
-    <tr>
-        <th class="auto-style1">Mã loại</th>
-        <th>Tên loại</th>
-        <th colspan="2">Hành động</th>
-    </tr>
-    <%
-      if (DataTable_select_loaisanpham != null)
-        {
-            for (int i = 0; i < DataTable_select_loaisanpham.Rows.Count; i++) 
-            { %>
-        <tr>
-            <td class="auto-style1"><%= DataTable_select_loaisanpham.Rows[i]["maloaisanpham"] %></td>
-            <td><%= DataTable_select_loaisanpham.Rows[i]["tenloaisanpham"] %></td>
-            <td><a href="cuahang_loaisanpham.aspx?editID=<%= DataTable_select_loaisanpham.Rows[i]["maloaisanpham"] %>">Sửa</a></td>
-            <td><a href="cuahang_loaisanpham.aspx?deleteID=<%= DataTable_select_loaisanpham.Rows[i]["maloaisanpham"] %>" onclick="return confirm('Xác nhận xoá?')">Xoá</a></td>
-        </tr>
-    <% 
-            }
-        }  %>
-</table>
 
 </body>
 </html>

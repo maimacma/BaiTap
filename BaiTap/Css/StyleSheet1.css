@@ -1,10 +1,11 @@
 ﻿body {
     margin: 0 0 0 0;
 }
-.bang
-{
-    place-items:center;
+
+.bang {
+    place-items: center;
 }
+
 .kieuchu {
     text-align: center;
     font-weight: bold;
@@ -13,73 +14,103 @@
     width: 100%;
     background-color: cornflowerblue;
 }
-.mau{
-    background-color:cyan;
+
+.mau {
+    background-color: cyan;
 }
+
 .bangmini {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    height: 200px;
+    grid-template-columns: repeat(5, 19%); /* Đặt 5 cột chia đều */
+    gap: 23px; /* Khoảng cách giữa các ô */
+    height: 400px;
 }
+
+@media(max-width: 576px) {
+    .bangmini {
+        grid-template-columns: 100%;
+
+    }
+
+    .blox {
+        height: 400px
+    }
+}
+
 .blox {
-    display: block !important;
-    border-radius: 10px !important;
-    border: 1px solid black !important;
-    padding-right: 10px;
-    margin-right:10px;
-    text-align:center !important;
-    place-items:center;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-right: 5px;
+    text-align: center;
+    display: flex; /* Sử dụng flex để căn giữa */
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    max-height: 400px/* Đảm bảo căn giữa hoàn toàn */
 }
+
 .canbokc {
     margin: 0% 0% 0% 0%;
-    margin-top:0%;
+    margin-top: 0%;
     padding: 0% 0% 0% 0%;
 }
-.new{
-    padding-top:10px;
+
+.new {
+    padding-top: 10px;
 }
+
 .chinhbox {
     display: block; /* Mỗi TextBox xuống dòng */
     margin-bottom: 10px; /* Khoảng cách giữa chúng */
     padding: 5px;
     width: 80%;
+}
 
+.cn {
+    margin-right: 10px;
 }
-.cn{
-    margin-right:10px;
-}
+
 .dn {
     display: flex;
-    height: 100vh; 
+    height: 100vh;
 }
- .bacot {
+
+.bacot {
     width: 100px; /* Điều chỉnh kích thước theo ý muốn */
     height: 100px;
     background: lightblue;
     margin: 10px;
     display: flex;
 }
+
 .cangiuachu {
     text-align: center;
 }
+
 .cangiuaitem {
     align-items: center;
 }
+
 .cangiuaconten {
     justify-content: center;
 }
-.cantraichu{
-    text-align:left;
+
+.cantraichu {
+    text-align: left;
 }
+
 .canphaichu {
     text-align: right;
 }
-.canphaicontent{
-    justify-content:right;
+
+.canphaicontent {
+    justify-content: right;
 }
+
 .cantraicontent {
     justify-content: left;
 }
+
 #hdau {
     font-size: xx-large;
     color: antiquewhite;
@@ -87,7 +118,22 @@
     text-align: left;
     text-decoration: none;
     float: left;
+    height:40px;
 }
-h1{
-    margin:0 0 0 0;
+
+h1 {
+    margin: 0 0 0 0;
+}
+.menuitem ul li{
+    text-align: center;
+    width:260px;
+}
+.tangcochu{
+    font-size:25px;
+}
+@media(max-width:576px)
+{
+    .menuitem ul li{
+        width:50px;
+    }
 }
