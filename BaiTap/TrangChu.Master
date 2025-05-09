@@ -51,11 +51,11 @@
                 </div>
                 <div style="border-style: none; width:100%; height:40px;font-size:x-large;display:block">
                     <div id="hdau" style="margin:0 0 0 0">
-                    <a href="WebForm1.aspx" style="text-decoration:none;color:burlywood;margin:0 0 0 0">SHOPABC</a>
+                    <a href="WebForm1.aspx" style="text-decoration:none;color:burlywood;margin:0 0 0 0;font-size:35px">SHOPABC</a>
                      
                         </div>
-                    <div style="width:70%;height:40px;text-align:center;place-content:center">
-                  <asp:Menu runat="server"  DynamicHorizontalOffset="0" Orientation="Horizontal" DynamicHoverStyle-ForeColor="Black" DynamicMenuItemStyle-Font-Size="XX-Large" DynamicMenuItemStyle-ForeColor="Black" ForeColor="Black" Style="text-align:center;place-items:center;width:100%" StaticEnableDefaultPopOutImage="False">
+                    <div style="width:70%;height:40px;text-align:center;place-content:center;place-items:center">
+                  <asp:Menu runat="server"  DynamicHorizontalOffset="0" Orientation="Horizontal" DynamicMenuItemStyle-ForeColor="Black" ForeColor="Black"  Style="width:100%;text-align:center;padding-top:7px" StaticEnableDefaultPopOutImage="False" CssClass="menuitem tangcochu">
                       <Items>
                          
                           <asp:MenuItem Text="Sản phẩm" Value="Sản phẩm" NavigateUrl="~/WebForm6.aspx">
@@ -75,10 +75,52 @@
                         </div>
                 </div>
             </header>
-            
-            <div style="width:100%;height:500px">
+            <div>
+            <div style="width:100%;height:300px">
                 <img name="qcao" src="" onclick="trangsp()" onmouseover="dungquc()" onmouseout="tieptuc()" style="cursor:pointer;z-index:1;text-align:center;width:100%;height:300px"/>
             </div>
+            <div>
+            <div class="bangmini" style="padding-top:20px;padding-bottom:20px">
+                <div class="blox">
+                    <div>
+                        <img src=""/>
+                    </div>
+                    <div>
+                       <asp:Label runat="server"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label runat="server"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Button runat="server" Text="Chi tiết sản phẩm" PostBackUrl="~/WebForm8.aspx"/>
+                        <asp:Button runat="server" Text="Thêm vào giỏ hàng" PostBackUrl="~/WebForm8.aspx"/>
+                    </div>
+                </div>
+                  <div class="blox">
+
+                </div>
+                  <div class="blox">
+
+                </div>
+                 <div class="blox">
+
+                </div>
+                  <div class="blox">
+
+                </div>
+         </div>
+            </div>
+                </div>
+   <footer style="height:25%">
+       <div style="width: 100%; height: 50px; background-color: black; text-align: center; place-content: center; place-items: center">
+        <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM -</a>   
+           <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Liên hệ: 0123456789</a>
+           <br />
+           <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Copyright © 2025 Shopabc. All rights reserved.</a>
+       </div>
+   </footer>
+
+            
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
             </asp:ContentPlaceHolder>

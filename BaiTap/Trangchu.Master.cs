@@ -20,10 +20,14 @@ namespace BaiTap
         public MenuItem menuitem;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 dsqc();
             }
+            else
+            {
+                dsqc();
+            }    
         }
         protected void dsqc()
         {
