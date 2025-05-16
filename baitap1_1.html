@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiển thị ngày tháng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-image: url('../asp/BaiTap/BaiTap/anh/anh3.jpg');
+      background-position: cover;
+      background-repeat: no-repeat;
+    }
+    #trungtam {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    #h1 {
+      font-size: 30px;
+      color:blueviolet;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+function checkDate() {
+  var ngaykiemtra = document.getElementById("datetime").value;
+  if (ngaykiemtra.trim() === "") {
+    alert("Bạn chưa nhập ngày tháng");
+    return;
+  }
+  var bogch = ngaykiemtra.split("/");
+  if (bogch.length !== 3) {
+    document.getElementById("result").innerHTML = "Định dạng ngày không hợp lệ!";
+    return;
+  }
+  var ngay = parseInt(bogch[0], 10);
+  var thang = parseInt(bogch[1], 10);
+  var nam = parseInt(bogch[2], 10);
+
+  var now = new Date();
+  var currentYear = now.getFullYear();
+  var currentMonth = now.getMonth() + 1; // getMonth() trả về 0-11
+
+  // Kiểm tra năm hoặc tháng nhỏ hơn hoặc bằng hiện tại
+  var hopLe = (nam < currentYear) || (nam === currentYear && thang <= currentMonth);
+
+  if (hopLe) {
+    document.getElementById("result").innerHTML = "Ngày tháng năm hợp lệ!";
+  } else {
+    document.getElementById("result").innerHTML = "Ngày tháng năm không hợp lệ!";
+  }
+}
+  </script>
+</head>
+<body>
+  <div id="trungtam">
+    <a id="h1">Kiểm tra ngày tháng</a>
+    <br>
+    <a>Mời bạn nhập ngày tháng:</a>
+<input type="datetime" id="datetime" value="14/05/2025">
+<br>
+<input type="button" value="Kiểm tra" onclick="checkDate()">
+    <br>
+    <div id="result"></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+#div1, #div2, #div3, #div4 {
+    display: block;
+    margin: 10px 0;
+ font-size: 30px;
+}
+
+</style>
+<script>
+    function lpbt1()
+    {
+        document.getElementById("tinh").onclick = ptb1;
+        document.getElementById("chu").innerHTML = "Giải phương trình bậc 1: ax + b = 0";
+        document.getElementById("div3").style.display = "none";
+        document.getElementById("doi").value = "Giải phương trình bậc 2";
+        document.getElementById("doi").onclick = doiptb2;
+        document.getElementById("doi1").value = "Nhận biết tam giác";
+        document.getElementById("doi1").onclick = nbtg;
+
+    }
+    function doiptb2()
+    {
+        document.getElementById("tinh").onclick = ptb2;
+      document.getElementById("chu").innerHTML = "Giải phương trình bậc 2: ax<sup>2</sup> + bx + c = 0";
+     document.getElementById("div3").style.display = "block";
+    document.getElementById("doi").value = "Giải phương trình bậc 1";
+   document.getElementById("doi").onclick = lpbt1; 
+    document.getElementById("doi1").value = "Nhận biết tam giác";
+    document.getElementById("doi1").onclick = nbtg;
+    }
+
+function nbtg()
+{
+    document.getElementById("chu").innerHTML = "Nhận biết các loại tam giác";
+    document.getElementById("div3").style.display = "block";
+    document.getElementById("tinh").onclick = nbtgiac;
+    document.getElementById("tinh").value = "Nhận biết";
+    if(doi.value == "Giải phương trình bậc 1")
+    {
+        document.getElementById("doi1").value = "Giải phương trình bậc 2";
+    document.getElementById("doi1").onclick = doiptb2;
+
+    
+    }
+    else
+    {
+        document.getElementById("doi1").value = "Giải phương trình bậc 1";
+    document.getElementById("doi1").onclick = lpbt1;
+    }
+}
+    function ptb1()
+    {
+var a = document.getElementById("a").value;
+var b = document.getElementById("b").value;
+if(a==0)
+{
+if (a == 0 && b == 0) {
+    document.getElementById("result").innerHTML = "Phương trình có vô số nghiệm";
+    }
+else if (a == 0 && b != 0) {
+    document.getElementById("result").innerHTML = "Phương trình vô nghiệm"; 
+
+    }
+}
+else
+{
+    var kq = -a/b;
+    document.getElementById("result").innerHTML = "Phương trình có nghiệm x = " + kq;
+    }
+}
+    function ptb2()
+    {
+       var a = document.getElementById("a").value;
+var b = document.getElementById("b").value;
+var c = document.getElementById("c").value;
+if(a==0)
+{
+    if(b==0)
+{
+if (b == 0 && c == 0) {
+    document.getElementById("result").innerHTML = "Phương trình có vô số nghiệm";
+    }
+else if (b == 0 && c != 0) {
+    document.getElementById("result").innerHTML = "Phương trình vô nghiệm"; 
+
+    }
+}
+else
+{
+    var kq = -b/c;
+    document.getElementById("result").innerHTML = "Phương trình có nghiệm x = " + kq;
+    }
+    }
+    else
+{
+    var delta = b*b - 4*a*c;
+    if(delta>0)
+{
+    var x1 = (-b + Math.sqrt(delta)) / (2*a);
+    var x2 = (-b - Math.sqrt(delta)) / (2*a);
+    document.getElementById("result").innerHTML = "Phương trình có 2 nghiệm phân biệt: x1 = " + x1 + ", x2 = " + x2;
+}
+else if(delta==0)
+{
+    var kq = -b/(2*a);
+    document.getElementById("result").innerHTML = "Phương trình có nghiệm kép: x = " + kq;
+}
+else
+{
+    document.getElementById("result").innerHTML = "Phương trình vô nghiệm";
+}
+}
+    }
+function nbtgiac()
+{
+    var a = document.getElementById("a").value;
+    var b = document.getElementById("b").value;
+    var c = document.getElementById("c").value;
+    if(a+b>c && a+c>b && b+c>a)
+    {
+        if(a==b && b==c)
+        {
+            document.getElementById("result").innerHTML = "Tam giác đều";
+        }
+        else if(a==b || b==c || a==c)
+        {
+            document.getElementById("result").innerHTML = "Tam giác cân";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML = "Tam giác thường";
+        }
+    }
+    else
+    {
+        document.getElementById("result").innerHTML = "Không phải là tam giác";
+    }
+}
+</script>
+</head>
+<body style="background-image: url('../asp/BaiTap/BaiTap/anh/anh1.jpg');background-size: cover; background-repeat: no-repeat; background-attachment: fixed;" onload="lpbt1()">
+    
+    <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; width: 600px; margin: auto; text-align: center;">
+     <div>   
+        
+        <h2 id="chu">Giải phương trình bậc 1</h2>
+     </div>
+    <br>
+    <div id="div1">
+        <label for="a">Nhập a:</label>
+        <input type="text" name="a" id="a" style="height:20px"><br>
+    </div>
+    <div id="div2">
+        <label for="b">Nhập b:</label>
+        <input type="text" name="b" id="b" style="height:20px"><br>
+    </div>
+    <div id="div3">
+        <label for="c">Nhập c:</label>
+        <input type="text" name="c" id="c" style="height:20px"><br>
+    </div>
+    <div id="div4">
+        <input type="submit" id="tinh" value="Tính" style="height:30px; width: 100px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;cursor: pointer;">
+        <br>
+        <a id="result" style="font-size: 20px;"></a>
+    </div>
+    <div id="div5">
+        <input type="button" id="doi" onclick="doiptb2()" value="Giải phương trình bậc 2" style="width: 200px; height: 30px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        <input type="button" onclick="nbtg()" id="doi1" value="Nhận biết tam giác" style="width: 200px; height: 30px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;margin-top: 10px;">
+   <A href="baitap1_1.html" style="text-decoration: none;display:block">Kiểm tra ngày tháng</A>
+    </div>
+</body>
+</html>
