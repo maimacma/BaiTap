@@ -1,130 +1,131 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Trangchu.master.cs" Inherits="BaiTap.Trangchu" %>
 
 <!DOCTYPE html>
-
-<html>
-    
+<html lang="vi">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-   <link type="text/css" href="Css/StyleSheet1.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <title>ShopABC</title>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+    
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Css/StyleSheet1.css" />
 </head>
-<body onload="qchuyenanh()" style="padding:0 0 0 0;margin:0 0 0 0">
+<body onload="qchuyenanh()" style="margin:0; padding:0;">
     <form id="form1" runat="server">
-        <div>
-                <script type="text/javascript" language="javascript" >
-                    var maid = 0;
-                    var masp = 0;
-                    var anh = 0;
-                    var manghinh = new Array();
-                    var mangid = new Array();
-                    var thoigian;
+        <header class="bg-info text-center py-4">
+            <h1 class="display-4 font-weight-bold text-white">Shopabc - Nơi Bán Điện Thoại Uy Tín Nhất VN</h1>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <a class="navbar-brand" href="WebForm1.aspx">SHOPABC</a>
+                <asp:Menu ID="Menu1" runat="server" CssClass="navbar-nav" Orientation="Horizontal"
+                    StaticMenuItemStyle-CssClass="nav-item"
+                    StaticSelectedStyle-CssClass="active"
+                    StaticMenuItemStyle-HorizontalPadding="10px"
+                    DynamicHorizontalOffset="0">
+                    <Items>
+                        <asp:MenuItem Text="Sản phẩm" NavigateUrl="~/WebForm6.aspx" />
+                        <asp:MenuItem Text="Cửa hàng" NavigateUrl="~/WebForm6.aspx" />
+                        <asp:MenuItem Text="Tra cứu đơn hàng" NavigateUrl="#" />
+                        <asp:MenuItem Text="Giỏ hàng" NavigateUrl="#" />
+                        <asp:MenuItem Text="Đăng nhập" NavigateUrl="#" />
+                    </Items>
+                </asp:Menu>
+            </nav>
+        </header>
 
-       <% for (int i = 0; i < quangcao1.Rows.Count; i++) {  %>
-                    manghinh[<%=i%>] = "<%= quangcao1.Rows[i]["hinh"]%>";
-                    mangid[<%=i%>] = "<%= quangcao1.Rows[i]["masanpham"]%>";
-                    <% } %>
-                    function qchuyenanh() {
-                        if (maid >= manghinh.length)
-                            maid = 0;
-                        masp = maid;
-                        hinh = maid;
-                        document.qcao.src = "../anh/" + manghinh[hinh];
-                        thoigian = setTimeout("qchuyenanh()", 5000);
-                        maid++;
-                    }
-                    function dungqc() {
-                        clearTimeout(thoigian);
-                    }
-                    function tieptuc() {
-                        clearTimeout(thoigian);
-                        qchuyenanh();
-                    }
-                    function trangsp() {
-                        window.location = "Sanpham.aspx?masanpham=" + mangid[maid];
-                    }
-                </script>
-            <header  style="margin:0 0 0 0;padding:0 0 0 0;height:25%" >
-                <div style="margin:0 0 0 0;padding:0 0 0 0;text-align:center;place-content:center;background-color:cyan;">
-                    <a style="padding-top:60px;width:100%;text-align:center;color:black;margin: 0 0 0 0;height:100px;font-size:70px;font-weight:bold">Shopabc Nơi Bán Điện Thoại Uy Tín Nhất VN</a>
+        <!-- Banner quảng cáo -->
+        <div style="width:100%; height:300px;">
+            <img name="qcao" src="" onclick="trangsp()" onmouseover="dungqc()" onmouseout="tieptuc()"
+                 style="cursor:pointer; width:100%; height:100%;" />
+        </div>
+
+        <!-- Nội dung trang -->
+        <div class="container my-4">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+           <asp:Repeater ID="rptSanPham" runat="server">
+    <HeaderTemplate>
+        <div class="row">
+    </HeaderTemplate>
+
+    <ItemTemplate>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border border-light">
+                <div class="position-absolute bg-danger text-white px-2 py-1" style="border-radius: 0 0.5rem 0.5rem 0; top: 0; left: 0;">
+                   
                 </div>
-                <div style="border-style: none; width:100%; height:40px;font-size:x-large;display:block">
-                    <div id="hdau" style="margin:0 0 0 0">
-                    <a href="WebForm1.aspx" style="text-decoration:none;color:burlywood;margin:0 0 0 0;font-size:35px">SHOPABC</a>
-                     
-                        </div>
-                    <div style="width:70%;height:40px;text-align:center;place-content:center;place-items:center">
-                  <asp:Menu runat="server"  DynamicHorizontalOffset="0" Orientation="Horizontal" DynamicMenuItemStyle-ForeColor="Black" ForeColor="Black"  Style="width:100%;text-align:center;padding-top:7px" StaticEnableDefaultPopOutImage="False" CssClass="menuitem tangcochu">
-                      <Items>
-                         
-                          <asp:MenuItem Text="Sản phẩm" Value="Sản phẩm" NavigateUrl="~/WebForm6.aspx">
-                                <asp:MenuItem Text="Điện thoại" Value="Điện thoại" NavigateUrl="~/WebForm6.aspx" />
-                              <asp:MenuItem Text="Máy tính bảng" Value="Máy tính bảng" NavigateUrl="~/WebForm6.aspx" />
-                              <asp:MenuItem Text="Laptop" Value="Laptop" NavigateUrl="~/WebForm6.aspx" />
-                              <asp:MenuItem Text="Tin tức" Value="Máy tính để bàn" NavigateUrl="~/WebForm6.aspx" />
-                              <asp:MenuItem Text="Phụ kiện" Value="Phụ kiện" NavigateUrl="~/WebForm6.aspx" />
-                              <asp:MenuItem Text="Khuyến mãi" Value="Khuyến mãi" NavigateUrl="~/WebForm6.aspx" />
-                          </asp:MenuItem>
-                          <asp:MenuItem Text=" Cửa hàng" Value="" NavigateUrl="~/WebForm6.aspx"/>
-                          <asp:MenuItem Text="Tra cứu đơn hàng" Value="" NavigateUrl="#" />
-                         <asp:MenuItem Text="Giỏ hàng" Value="" NavigateUrl="#"></asp:MenuItem>
-                          <asp:MenuItem Text="Đăng nhập" Value="" NavigateUrl="#" />
-                      </Items>
-                  </asp:Menu>
-                        </div>
+                <div class="position-absolute text-primary px-2 py-1" style="top: 0; right: 0; font-size: 12px;">
+                    Trả góp 0%
                 </div>
-            </header>
-            <div>
-            <div style="width:100%;height:300px">
-                <img name="qcao" src="" onclick="trangsp()" onmouseover="dungquc()" onmouseout="tieptuc()" style="cursor:pointer;z-index:1;text-align:center;width:100%;height:300px"/>
+             <img class="card-img-top" src='<%# ResolveUrl("~/anh/") + Eval("hinh") %>' alt="Sản phẩm" style="height: 200px; object-fit: contain;" />
+      <div class="card-body text-center">
+                    <h6 class="card-title font-weight-bold text-dark"><%# Eval("tensanpham") %></h6>
+                    <p class="mb-2">
+                        <span class="text-danger font-weight-bold"><%# Eval("dongia", "{0:N0}") %>đ</span>
+                    </p>
+
+                    <p class="text-muted small">Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng</p>
+
+                    <div class="text-warning">
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-right text-muted small">Yêu thích <i class="fa fa-heart text-danger"></i></p>
+                </div>
             </div>
-            <div>
-            <div class="bangmini" style="padding-top:20px;padding-bottom:20px">
-                <div class="blox">
-                    <div>
-                        <img src=""/>
-                    </div>
-                    <div>
-                       <asp:Label runat="server"></asp:Label>
-                    </div>
-                    <div>
-                        <asp:Label runat="server"></asp:Label>
-                    </div>
-                    <div>
-                        <asp:Button runat="server" Text="Chi tiết sản phẩm" PostBackUrl="~/WebForm8.aspx"/>
-                        <asp:Button runat="server" Text="Thêm vào giỏ hàng" PostBackUrl="~/WebForm8.aspx"/>
-                    </div>
-                </div>
-                  <div class="blox">
+        </div>
+    </ItemTemplate>
 
-                </div>
-                  <div class="blox">
+    <FooterTemplate>
+        </div>
+    </FooterTemplate>
+</asp:Repeater>
 
-                </div>
-                 <div class="blox">
-
-                </div>
-                  <div class="blox">
-
-                </div>
-         </div>
-            </div>
-                </div>
-   <footer style="height:25%">
-       <div style="width: 100%; height: 50px; background-color: black; text-align: center; place-content: center; place-items: center">
-        <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM -</a>   
-           <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Liên hệ: 0123456789</a>
-           <br />
-           <a style="text-decoration: none; color: white; margin: 0 0 0 0; font-size: 20px">Copyright © 2025 Shopabc. All rights reserved.</a>
-       </div>
-   </footer>
-
-            
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                
             </asp:ContentPlaceHolder>
         </div>
+
+        <footer class="bg-dark text-white text-center py-3">
+            <p>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM - Liên hệ: 0123456789</p>
+            <p>&copy; 2025 Shopabc. All rights reserved.</p>
+        </footer>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
     </form>
+
+    <!-- Quảng cáo script -->
+    <script type="text/javascript">
+        var maid = 0;
+        var masp = 0;
+        var hinh = 0;
+        var manghinh = [];
+        var mangid = [];
+        var thoigian;
+
+        <% for (int i = 0; i < quangcao1.Rows.Count; i++) { %>
+        manghinh[<%=i%>] = "<%= quangcao1.Rows[i]["hinh"] %>";
+            mangid[<%=i%>] = "<%= quangcao1.Rows[i]["masanpham"] %>";
+        <% } %>
+
+        function qchuyenanh() {
+            if (maid >= manghinh.length) maid = 0;
+            masp = maid;
+            hinh = maid;
+            document.qcao.src = "../anh/" + manghinh[hinh];
+            thoigian = setTimeout("qchuyenanh()", 5000);
+            maid++;
+        }
+
+        function dungqc() {
+            clearTimeout(thoigian);
+        }
+
+        function tieptuc() {
+            clearTimeout(thoigian);
+            qchuyenanh();
+        }
+
+        function trangsp() {
+            window.location = "Sanpham.aspx?masanpham=" + mangid[maid];
+        }
+    </script>
 </body>
 </html>
