@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,8 +31,18 @@ namespace BaiTap
             {
                 dsqc();
                 LoadSanPham();
+                string id = Request.QueryString["masanpham"];
+                if (!string.IsNullOrEmpty(id))
+                {
+                   SqlDataAdapter cm = new SqlDataAdapter("SELECT masanpham, hinh FROM sanpham", conn);
+                    DataTable bn = new DataTable();
+                    cm.Fill(bn);
+                    id = bn.Rows[0]["masanpham"].ToString();
+                }
             }
         }
+   
+
 
         protected void dsqc()
         {
@@ -46,7 +56,7 @@ namespace BaiTap
       
         private void LoadSanPham()
         {
-            string query = "SELECT masanpham, tensanpham, hinh, dongia, 34990000 AS giagoc, 13 AS giamgia, 305000 AS giamthem FROM SanPham";
+            string query = "SELECT masanpham, tensanpham, hinh, dongia FROM SanPham";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
             DataTable dt = new DataTable();
             da.Fill(dt);

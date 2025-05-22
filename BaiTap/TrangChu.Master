@@ -16,21 +16,28 @@
         <header class="bg-info text-center py-4">
             <h1 class="display-4 font-weight-bold text-white">Shopabc - Nơi Bán Điện Thoại Uy Tín Nhất VN</h1>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <a class="navbar-brand" href="WebForm1.aspx">SHOPABC</a>
-                <asp:Menu ID="Menu1" runat="server" CssClass="navbar-nav" Orientation="Horizontal"
-                    StaticMenuItemStyle-CssClass="nav-item"
-                    StaticSelectedStyle-CssClass="active"
-                    StaticMenuItemStyle-HorizontalPadding="10px"
-                    DynamicHorizontalOffset="0">
-                    <Items>
-                        <asp:MenuItem Text="Sản phẩm" NavigateUrl="~/WebForm6.aspx" />
-                        <asp:MenuItem Text="Cửa hàng" NavigateUrl="~/WebForm6.aspx" />
-                        <asp:MenuItem Text="Tra cứu đơn hàng" NavigateUrl="#" />
-                        <asp:MenuItem Text="Giỏ hàng" NavigateUrl="#" />
-                        <asp:MenuItem Text="Đăng nhập" NavigateUrl="#" />
-                    </Items>
-                </asp:Menu>
-            </nav>
+    <a class="navbar-brand" href="WebForm1.aspx">SHOPABC</a>
+    <asp:Menu ID="Menu1" runat="server" CssClass="navbar-nav" Orientation="Horizontal"
+        StaticMenuItemStyle-CssClass="nav-item"
+        StaticSelectedStyle-CssClass="active"
+        StaticMenuItemStyle-HorizontalPadding="10px"
+        DynamicHorizontalOffset="0">
+        <Items>
+            <asp:MenuItem Text="Sản phẩm" NavigateUrl="~/Chitietsanpham.aspx">
+                <asp:MenuItem Text="Điện thoại" NavigateUrl="~Chitietsanpham.aspx" />
+                <asp:MenuItem Text="Laptop" NavigateUrl="~Chitietsanpham.aspx" />
+                <asp:MenuItem Text="Máy tính bảng" NavigateUrl="~/Chitietsanpham.aspx" />
+                <asp:MenuItem Text="Phụ kiện" NavigateUrl="~/Chitietsanpham.aspx" />
+                
+            </asp:MenuItem>
+            <asp:MenuItem Text="Cửa hàng" NavigateUrl="~/WebForm6.aspx" />
+            <asp:MenuItem Text="Tra cứu đơn hàng" NavigateUrl="#" />
+            <asp:MenuItem Text="Giỏ hàng" NavigateUrl="#" />
+            <asp:MenuItem Text="Đăng nhập" NavigateUrl="#" />
+        </Items>
+    </asp:Menu>
+</nav>
+
         </header>
 
         <!-- Banner quảng cáo -->
@@ -42,36 +49,43 @@
         <!-- Nội dung trang -->
         <div class="container my-4">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-           <asp:Repeater ID="rptSanPham" runat="server">
+
+<asp:Repeater ID="rptSanPham" runat="server">
     <HeaderTemplate>
         <div class="row">
     </HeaderTemplate>
 
     <ItemTemplate>
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm border border-light">
-                <div class="position-absolute bg-danger text-white px-2 py-1" style="border-radius: 0 0.5rem 0.5rem 0; top: 0; left: 0;">
-                   
-                </div>
-                <div class="position-absolute text-primary px-2 py-1" style="top: 0; right: 0; font-size: 12px;">
-                    Trả góp 0%
-                </div>
-             <img class="card-img-top" src='<%# ResolveUrl("~/anh/") + Eval("hinh") %>' alt="Sản phẩm" style="height: 200px; object-fit: contain;" />
-      <div class="card-body text-center">
-                    <h6 class="card-title font-weight-bold text-dark"><%# Eval("tensanpham") %></h6>
-                    <p class="mb-2">
-                        <span class="text-danger font-weight-bold"><%# Eval("dongia", "{0:N0}") %>đ</span>
-                    </p>
-
-                    <p class="text-muted small">Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng</p>
-
-                    <div class="text-warning">
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+            <a href='<%# "Chitietsanpham.aspx?masanpham=" + Eval("masanpham") %>' class="text-decoration-none text-dark">
+                <div class="card h-100 shadow-sm border border-light">
+                    <div class="position-absolute bg-danger text-white px-2 py-1"
+                         style="border-radius: 0 0.5rem 0.5rem 0; top: 0; left: 0;">
+                        <!-- Bạn có thể thêm giảm giá tại đây nếu muốn -->
                     </div>
-                    <p class="text-right text-muted small">Yêu thích <i class="fa fa-heart text-danger"></i></p>
+                    <div class="position-absolute text-primary px-2 py-1" style="top: 0; right: 0; font-size: 12px;">
+                        Trả góp 0%
+                    </div>
+                    <img class="card-img-top" src='<%# ResolveUrl("~/anh/") + Eval("hinh") %>' alt="Sản phẩm"
+                         style="height: 200px; object-fit: contain;" />
+                    <div class="card-body text-center">
+                        <h6 class="card-title font-weight-bold text-dark"><%# Eval("tensanpham") %></h6>
+                        <p class="mb-2">
+                            <span class="text-danger font-weight-bold"><%# Eval("dongia", "{0:N0}") %>đ</span>
+                        </p>
+                        <p class="text-muted small">
+                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                        </p>
+                        <div class="text-warning">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-right text-muted small">
+                            Yêu thích <i class="fa fa-heart text-danger"></i>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </ItemTemplate>
 
@@ -79,6 +93,7 @@
         </div>
     </FooterTemplate>
 </asp:Repeater>
+
 
             </asp:ContentPlaceHolder>
         </div>
