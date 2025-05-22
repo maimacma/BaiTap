@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,50 +12,50 @@ namespace BaiTap
 {
     public partial class Sanpham1 : System.Web.UI.Page
     {
+        private SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=thang;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["masanpham"] != null)
+                LoadTatCaSanPham();
+                if (Session["username"] != null)
                 {
-                    string masp = Request.QueryString["masanpham"];
-                    LoadChiTietSanPham(masp);
+                    lblUsername.Text = "Xin ch�o, " + Session["username"].ToString();
+                    phLogin.Visible = false;
+                    phLogout.Visible = true;
                 }
                 else
                 {
-                    Response.Redirect("WebForm1.aspx"); // quay về trang danh sách sản phẩm nếu không có mã
+                    lblUsername.Text = "";
+                    phLogin.Visible = true;
+                    phLogout.Visible = false;
                 }
             }
         }
 
-        private void LoadChiTietSanPham(string masp)
+        private void LoadTatCaSanPham()
         {
-            string chuoiketnoi = ConfigurationManager.ConnectionStrings["ThangConnectionString"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(chuoiketnoi))
-            {
-                string sql = "SELECT tensanpham, hinh, dongia, mota FROM sanpham WHERE masanpham = @masp";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@masp", masp);
+              conn.Open();
+            string query = "SELECT * FROM SanPham";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                rptSanPham.DataSource = dt;
+                rptSanPham.DataBind();
+                conn.Close();
 
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
-                {
-                    string ten = dr["tensanpham"].ToString();
-                    lblTenSanPham.Text = ten;
-                  
-                    imgSanPham.ImageUrl = "~/anh/" + dr["hinh"].ToString();
-                    lblGia.Text = Convert.ToDecimal(dr["dongia"]).ToString("N0") + " đ";
-                    lblMoTa.Text = dr["mota"].ToString();
-                }
-                else
-                {
-                    Response.Redirect("WebForm6.aspx");
-                }
-                dr.Close();
-            }
         }
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Dangnhap.aspx");
+        }
+
+        protected void lnkLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Sanpham.aspx");
+        }
+
     }
-   }
+}

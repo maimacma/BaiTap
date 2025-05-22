@@ -24,14 +24,14 @@
         DynamicHorizontalOffset="0" 
         Style="width:60%">
         <Items>
-            <asp:MenuItem Text="Sản phẩm" NavigateUrl="~/Chitietsanpham.aspx">
-                <asp:MenuItem Text="Điện thoại" NavigateUrl="~Chitietsanpham.aspx" />
-                <asp:MenuItem Text="Laptop" NavigateUrl="~Chitietsanpham.aspx" />
-                <asp:MenuItem Text="Máy tính bảng" NavigateUrl="~/Chitietsanpham.aspx" />
-                <asp:MenuItem Text="Phụ kiện" NavigateUrl="~/Chitietsanpham.aspx" />
+            <asp:MenuItem Text="Sản phẩm" NavigateUrl="~/Sanpham.aspx">
+                <asp:MenuItem Text="Điện thoại" NavigateUrl="~/Sanpham.aspx" />
+                <asp:MenuItem Text="Laptop" NavigateUrl="~/Sanpham.aspx" />
+                <asp:MenuItem Text="Máy tính bảng" NavigateUrl="~/SanPham.aspx" />
+                <asp:MenuItem Text="Phụ kiện" NavigateUrl="~/Sanpham.aspx" />
                 
             </asp:MenuItem>
-            <asp:MenuItem Text="Cửa hàng" NavigateUrl="~/WebForm6.aspx" />
+            
             <asp:MenuItem Text="Tra cứu đơn hàng" NavigateUrl="#" />
             <asp:MenuItem Text="Giỏ hàng" NavigateUrl="#" />
             

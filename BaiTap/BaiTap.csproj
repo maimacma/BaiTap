@@ -202,8 +202,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Js\JavaScript.js" />
-    <Content Include="Chitietsanpham.aspx" />
-    <Content Include="sanpham.aspx" />
+    <Content Include="Sanpham.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -320,11 +319,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sanpham.aspx.cs">
-      <DependentUpon>Chitietsanpham.aspx</DependentUpon>
+      <DependentUpon>Sanpham.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Sanpham.aspx.designer.cs">
-      <DependentUpon>Chitietsanpham.aspx</DependentUpon>
+      <DependentUpon>Sanpham.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
