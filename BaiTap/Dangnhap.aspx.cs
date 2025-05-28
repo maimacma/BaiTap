@@ -38,6 +38,8 @@ namespace BaiTap
                     // Đăng nhập thành công
                     Session["User"] = username;
                     Response.Redirect("WebForm1.aspx");
+                   
+
                 }
                 else
                 {

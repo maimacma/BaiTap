@@ -39,14 +39,16 @@ namespace BaiTap
                     cm.Fill(bn);
                     id = bn.Rows[0]["masanpham"].ToString();
                 }
-                if (Session["User"] != null)
-                {
-                    // Đã đăng nhập
-                    phLogin.Visible = false;
-                    phLogout.Visible = true;
-                    lblUsername.Text = "Xin chào, " + Session["User"];
-                   
-                }
+              
+            }
+
+            if (Session["User"] != null)
+            {
+                // Đã đăng nhập
+                phLogin.Visible = false;
+                phLogout.Visible = true;
+                lblUsername.Text = "Xin chào, " + Session["User"];
+
             }
             else
             {
@@ -54,7 +56,6 @@ namespace BaiTap
                 phLogin.Visible = true;
                 phLogout.Visible = false;
             }
-            
 
         }
 

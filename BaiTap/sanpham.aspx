@@ -67,12 +67,12 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="WebForm1.aspx">Trang chủ</a></li>
                     <li class="nav-item active"><a class="nav-link" href="Sanpham.aspx">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="WebForm6.aspx">Cửa hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Tra cứu đơn hàng</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
                   
                 </ul>
-                            <div class="d-flex align-items-center ml-auto" style="background-color:dark">
+                            <div class="d-flex align-items-center ml-auto" style="background-color:darkgray;">
     <asp:PlaceHolder ID="phLogin" runat="server">
         <asp:LinkButton ID="lnkLogin" runat="server" CssClass="nav-link text-white" OnClick="lnkLogin_Click">Đăng nhập</asp:LinkButton>
     </asp:PlaceHolder>
@@ -95,12 +95,12 @@
                     <div class="card h-100 shadow-sm">
                         <asp:Image ID="imgSP" runat="server" ImageUrl='<%#"../anh/"+ Eval("hinh") %>' CssClass="card-img-top" />
                         <div class="card-body">
-                            <h5 class="card-title"><%# Eval("masanpham") %></h5>
+                            <h5 class="card-title"><%# Eval("tensanpham") %></h5>
                             <p class="card-text text-danger font-weight-bold">Giá: <%# Eval("dongia", "{0:N0}") %>₫</p>
                             <p class="card-text text-muted"><%# Eval("mota") %></p>
                         </div>
                         <div class="card-footer text-center">
-                            <a href='<%# "Sanpham.aspx?id=" + Eval("masanpham") %>' class="btn btn-primary btn-sm">
+                            <a href='<%# "Chitietsp.aspx?masanpham=" + Eval("masanpham") %>' class="btn btn-primary btn-sm">
                                 <i class="fas fa-eye"></i> Xem chi tiết
                             </a>
                         </div>

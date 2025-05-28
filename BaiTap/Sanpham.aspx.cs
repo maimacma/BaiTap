@@ -19,9 +19,9 @@ namespace BaiTap
             if (!IsPostBack)
             {
                 LoadTatCaSanPham();
-                if (Session["username"] != null)
+                if (Session["user"] != null)
                 {
-                    lblUsername.Text = "Xin chào, " + Session["username"].ToString();
+                    lblUsername.Text = "Xin chào, " + Session["user"].ToString();
                     phLogin.Visible = false;
                     phLogout.Visible = true;
                 }
