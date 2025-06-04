@@ -16,7 +16,8 @@ namespace BaiTap
     public partial class Trangchu : System.Web.UI.MasterPage
     {
        private SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=thang;Integrated Security=True");
-        
+        public string id;
+        public string tb;
         public MenuItem menuitem;
 
         public DataTable quangcao1
@@ -24,14 +25,16 @@ namespace BaiTap
             get { return ViewState["quangcao1"] as DataTable; }
             set { ViewState["quangcao1"] = value; }
         }
-
+     
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            tb = Request.QueryString["sp"];
             if (!IsPostBack)
             {
                 dsqc();
                 LoadSanPham();
-                string id = Request.QueryString["masanpham"];
+               id = Request.QueryString["masanpham"];
                 if (!string.IsNullOrEmpty(id))
                 {
                    SqlDataAdapter cm = new SqlDataAdapter("SELECT masanpham, hinh FROM sanpham", conn);
@@ -39,7 +42,7 @@ namespace BaiTap
                     cm.Fill(bn);
                     id = bn.Rows[0]["masanpham"].ToString();
                 }
-              
+               
             }
 
             if (Session["User"] != null)

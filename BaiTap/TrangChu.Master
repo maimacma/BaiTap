@@ -15,7 +15,14 @@
     <link rel="stylesheet" type="text/css" href="Css/StyleSheet1.css" />
 </head>
 <body onload="qchuyenanh()" style="margin:0; padding:0;">
+   
     <form id="form1" runat="server">
+         <script>
+             var a ='<%=tb%>';
+             if (a == "khongco") {
+                 alert("Bạn chưa chọn sản phẩm");
+             }
+         </script>
 <header class="bg-info text-center py-4 mb-4">
     <h1 class="display-4 font-weight-bold text-white">ShopABC - Nơi Bán Điện Thoại Uy Tín Nhất VN</h1>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">

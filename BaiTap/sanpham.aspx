@@ -58,8 +58,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <!-- Header & Menu -->
         <header class="bg-info text-center py-4 mb-4">
             <h1 class="display-4 font-weight-bold text-white">ShopABC - Nơi Bán Điện Thoại Uy Tín Nhất VN</h1>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">

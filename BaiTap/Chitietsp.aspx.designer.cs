@@ -24,6 +24,15 @@ namespace BaiTap
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// lblBreadcrumbTen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBreadcrumbTen;
+
+        /// <summary>
         /// pnlChiTiet control.
         /// </summary>
         /// <remarks>
@@ -76,14 +85,5 @@ namespace BaiTap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnMuaNgay;
-
-        /// <summary>
-        /// pnlKhongTimThay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlKhongTimThay;
     }
 }

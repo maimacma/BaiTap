@@ -16,7 +16,17 @@ namespace BaiTap
             if (!IsPostBack)
             {
                 LoadChiTietSanPham();
+     
+              
+                  
+                       
+
+                        pnlChiTiet.Visible = true;
+                    
+               
+              
             }
+
         }
 
         private void LoadChiTietSanPham()
@@ -24,9 +34,7 @@ namespace BaiTap
             string masp = Request.QueryString["masanpham"];
             if (string.IsNullOrEmpty(masp))
             {
-                pnlChiTiet.Visible = false;
-                pnlKhongTimThay.Visible = true;
-                return;
+                Response.Redirect("Webform1.aspx?sp=khongco");   
             }
 
             string connStr = WebConfigurationManager.ConnectionStrings["ThangConnectionString"].ConnectionString;
@@ -45,14 +53,12 @@ namespace BaiTap
                     lblGia.Text = string.Format("{0:N0} đ", reader["dongia"]);
                     lblMoTa.Text = reader["mota"].ToString();
                     imgSanPham.ImageUrl = "~/anh/" + reader["hinh"].ToString();
-
+                    lblBreadcrumbTen.Text = reader["tensanpham"].ToString();
                     pnlChiTiet.Visible = true;
-                    pnlKhongTimThay.Visible = false;
                 }
                 else
                 {
                     pnlChiTiet.Visible = false;
-                    pnlKhongTimThay.Visible = true;
                 }
 
                 reader.Close();
