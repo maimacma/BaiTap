@@ -1,1 +1,307 @@
-https://drive.google.com/drive/folders/1T133KkQ9qqClRX6F8oTuxX1kbmKkGRYv?usp=sharing
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Giohang.aspx.cs" Inherits="BaiTap.Giohang" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Giỏ hàng - ShopABC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+<asp:Label ID="lblThongBao" runat="server" CssClass="text-success font-weight-bold mt-3" />
+        <header class="bg-info text-center py-4 mb-4">
+            <h1 class="display-4 font-weight-bold text-white">ShopABC - Nơi Bán Điện Thoại Uy Tín Nhất VN</h1>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <a class="navbar-brand" href="WebForm1.aspx">SHOPABC</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="WebForm1.aspx">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Sanpham.aspx">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tra cứu đơn hàng</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="Giohang.aspx">Giỏ hàng</a></li>
+                </ul>
+                <div class="d-flex align-items-center ml-auto" style="background-color:darkgray;">
+                    <asp:PlaceHolder ID="phLogin" runat="server">
+                        <asp:LinkButton ID="lnkLogin" runat="server" CssClass="nav-link text-white" OnClick="lnkLogin_Click">Đăng nhập</asp:LinkButton>
+                    </asp:PlaceHolder>
+                    <asp:PlaceHolder ID="phLogout" runat="server" Visible="false">
+                        <asp:LinkButton ID="lnkLogout" runat="server" 
+                            CssClass="nav-link text-white" OnClick="lnkLogout_Click" Style="">Đăng xuất</asp:LinkButton>
+                    </asp:PlaceHolder>
+                    <asp:Label ID="lblUsername" runat="server" CssClass="nav-link text-warning font-weight-bold ml-2" />
+                </div>
+            </nav>
+        </header>
+
+        <!-- Nội dung giỏ hàng -->
+        <div class="container mb-5">
+            <h2 class="mb-4">Giỏ hàng của bạn</h2>
+           <asp:GridView ID="gvGioHang" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered"
+               OnRowCommand="gvGioHang_RowCommand" DataKeyNames="masanpham">
+
+                <Columns>
+                    <asp:BoundField DataField="tensanpham" HeaderText="Tên sản phẩm" />
+                    <asp:BoundField DataField="dongia" HeaderText="Đơn giá" DataFormatString="{0:N0}₫" />
+                    <asp:TemplateField HeaderText="Số lượng">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtSoLuong" runat="server" Text='<%# Eval("soluong") %>'
+                                CssClass="form-control" Width="60px"></asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Thành tiền">
+                        <ItemTemplate>
+                            <%# Convert.ToDecimal(Eval("dongia")) * Convert.ToInt32(Eval("soluong")) %> ₫
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Hành động">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnCapNhat" runat="server" CommandName="CapNhat" CommandArgument='<%# Eval("masanpham") %>' CssClass="btn btn-sm btn-warning">Cập nhật</asp:LinkButton>
+                            <asp:LinkButton ID="btnXoa" runat="server" CommandName="Xoa" CommandArgument='<%# Eval("masanpham") %>' CssClass="btn btn-sm btn-danger ml-2">Xoá</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+
+            <div class="text-right mt-4">
+                <h4>Tổng tiền: <asp:Label ID="lblTongTien" runat="server" CssClass="text-danger font-weight-bold" /></h4>
+                <asp:Button ID="btnThanhToan" runat="server" Text="Thanh toán" CssClass="btn btn-success mt-3" OnClick="btnThanhToan_Click" />
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-3">
+            <p>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM - Liên hệ: 0123456789</p>
+            <p>&copy; 2025 ShopABC. All rights reserved.</p>
+        </footer>
+    </form>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+ c#
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+
+namespace BaiTap
+{
+
+    public partial class Giohang : System.Web.UI.Page
+    {
+        private SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=thang;Integrated Security=True");
+
+        private int TaoMaHoaDonMoi()
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT ISNULL(MAX(mahoadon), 0) + 1 FROM hoadon";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                int mahoadon = (int)cmd.ExecuteScalar();
+                return mahoadon;
+            }
+            catch
+            {
+                // Xử lý lỗi nếu cần, hoặc trả về -1
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LoadGioHang();
+                if (Session["makh"] != null)
+                {
+                    // Đã đăng nhập
+                    phLogin.Visible = false;
+                    phLogout.Visible = true;
+                    lblUsername.Text = "Xin chào, " + Session["hoten"]; // ví dụ bạn lưu "hoten" vào session
+                }
+                else
+                {
+                    // Chưa đăng nhập
+                    phLogin.Visible = true;
+                    phLogout.Visible = false;
+                    lblUsername.Text = "";
+                }
+            }
+        }
+
+        private void LoadGioHang()
+        {
+            DataTable dtGioHang = Session["GioHang"] as DataTable;
+            if (dtGioHang != null)
+            {
+                gvGioHang.DataSource = dtGioHang;
+                gvGioHang.DataBind();
+                CapNhatTongTien(dtGioHang);
+            }
+        }
+
+        protected void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (Session["GioHang"] == null || ((DataTable)Session["GioHang"]).Rows.Count == 0)
+            {
+                // Giỏ hàng trống
+                return;
+            }
+
+            DataTable gioHang = (DataTable)Session["GioHang"];
+            string makh = Session["makh"]?.ToString(); // lấy từ session đăng nhập
+            if (string.IsNullOrEmpty(makh))
+            {
+                Response.Redirect("Dangnhap.aspx");
+                return;
+            }
+
+            int mahoadon = TaoMaHoaDonMoi();
+            DateTime ngayDat = DateTime.Now;
+            DateTime ngayGiao = ngayDat.AddDays(3); // giao sau 3 ngày
+            decimal tongTien = gioHang.AsEnumerable().Sum(row => Convert.ToDecimal(row["dongia"]) * Convert.ToInt32(row["soluong"]));
+
+            using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString))
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+
+                try
+                {
+                    // 1. Insert hoadon
+                    string sqlHD = @"INSERT INTO hoadon (mahoadon, makh, ngaydathang, ngaygiaohang, tongtien)
+                             VALUES (@mahd, @makh, @ngaydat, @ngaygiao, @tongtien)";
+                    SqlCommand cmdHD = new SqlCommand(sqlHD, conn, tran);
+                    cmdHD.Parameters.AddWithValue("@mahd", mahoadon);
+                    cmdHD.Parameters.AddWithValue("@makh", makh);
+                    cmdHD.Parameters.AddWithValue("@ngaydat", ngayDat);
+                    cmdHD.Parameters.AddWithValue("@ngaygiao", ngayGiao);
+                    cmdHD.Parameters.AddWithValue("@tongtien", tongTien);
+                    cmdHD.ExecuteNonQuery();
+
+                    // 2. Insert chi tiết hoá đơn
+                    foreach (DataRow row in gioHang.Rows)
+                    {
+                        string sqlCT = @"INSERT INTO chitiethoadon (mahoadon, masanpham, soluong, dongia)
+                                 VALUES (@mahd, @masp, @sl, @gia)";
+                        SqlCommand cmdCT = new SqlCommand(sqlCT, conn, tran);
+                        cmdCT.Parameters.AddWithValue("@mahd", mahoadon);
+                        cmdCT.Parameters.AddWithValue("@masp", row["masanpham"].ToString());
+                        cmdCT.Parameters.AddWithValue("@sl", Convert.ToInt32(row["soluong"]));
+                        cmdCT.Parameters.AddWithValue("@gia", Convert.ToDecimal(row["dongia"]));
+                        cmdCT.ExecuteNonQuery();
+                    }
+
+                    tran.Commit();
+
+                    // Xoá giỏ hàng sau khi thanh toán
+                    Session["GioHang"] = null;
+                    lblThongBao.Text = "Thanh toán thành công! Mã hoá đơn: " + mahoadon;
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    lblThongBao.Text = "Lỗi khi thanh toán: " + ex.Message;
+                }
+            }
+        }
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Dangnhap.aspx");
+        }
+        protected void lnkLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear(); // hoặc Session.Remove("makh");
+            Response.Redirect("WebForm1.aspx"); // về trang chủ
+        }
+        protected void gvGioHang_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "CapNhat" || e.CommandName == "Xoa")
+            {
+                string masp = e.CommandArgument.ToString();
+
+                DataTable dtGioHang = Session["GioHang"] as DataTable;
+                if (dtGioHang == null)
+                    return;
+
+                if (e.CommandName == "Xoa")
+                {
+                    DataRow[] rows = dtGioHang.Select("masanpham = '" + masp + "'");
+                    foreach (DataRow r in rows)
+                    {
+                        dtGioHang.Rows.Remove(r);
+                    }
+                }
+                else if (e.CommandName == "CapNhat")
+                {
+                    foreach (GridViewRow row in gvGioHang.Rows)
+                    {
+
+                        string maspRow = gvGioHang.DataKeys[row.RowIndex].Value.ToString();
+                        if (maspRow == masp)
+                        {
+                            TextBox txtSoLuong = (TextBox)row.FindControl("txtSoLuong");
+                            if (txtSoLuong != null)
+                            {
+                                int soLuong;
+                                if (int.TryParse(txtSoLuong.Text.Trim(), out soLuong) && soLuong > 0)
+                                {
+                                    DataRow[] rows = dtGioHang.Select("masanpham = '" + masp + "'");
+                                    if (rows.Length > 0)
+                                    {
+                                        rows[0]["soluong"] = soLuong;
+                                    }
+                                }
+                                else
+                                {
+                                    txtSoLuong.Text = "1";
+                                }
+                            }
+                            break; // đã tìm thấy sản phẩm, thoát vòng lặp
+                        }
+                    }
+                }
+
+                Session["GioHang"] = dtGioHang;
+                gvGioHang.DataSource = dtGioHang;
+                gvGioHang.DataBind();
+
+                CapNhatTongTien(dtGioHang);
+            }
+        }
+
+        private void CapNhatTongTien(DataTable dtGioHang)
+        {
+            decimal tongTien = 0;
+            foreach (DataRow row in dtGioHang.Rows)
+            {
+                decimal dongia = Convert.ToDecimal(row["dongia"]);
+                int soluong = Convert.ToInt32(row["soluong"]);
+                tongTien += dongia * soluong;
+            }
+            lblTongTien.Text = tongTien.ToString("N0") + "₫";
+        }
+
+
+    }
+
+}
+
+
