@@ -74,19 +74,16 @@ namespace BaiTap
         {
             string masp = Request.QueryString["masanpham"];
             string makha = makh.Value;
-
-            // Lấy thông tin sản phẩm từ DB (ví dụ)
-            DataTable dtSanPham = LayThongTinSanPham(masp); // bạn tự code hàm này
+            DataTable dtSanPham = LayThongTinSanPham(masp);
             if (dtSanPham.Rows.Count > 0)
             {
                 DataRow sp = dtSanPham.Rows[0];
 
-                // Tạo hoặc lấy giỏ hàng hiện tại
+
                 DataTable dtGioHang = Session["GioHang"] as DataTable;
                 if (dtGioHang == null)
                 {
                     dtGioHang = new DataTable();
-                    dtGioHang.Columns.Add("MaSP");
                     dtGioHang.Columns.Add("MaSP");
                     dtGioHang.Columns.Add("TenSP");
                     dtGioHang.Columns.Add("DonGia", typeof(int));
@@ -94,7 +91,7 @@ namespace BaiTap
                     dtGioHang.Columns.Add("HinhAnh");
                 }
 
-                // Kiểm tra đã có sản phẩm trong giỏ chưa
+
                 DataRow existing = dtGioHang.Select("MaSP = '" + masp + "'").FirstOrDefault();
                 if (existing != null)
                 {
@@ -104,18 +101,16 @@ namespace BaiTap
                 {
                     DataRow newRow = dtGioHang.NewRow();
                     newRow["MaSP"] = masp;
-                    newRow["TenSP"] = sp["TenSP"];
-                    newRow["DonGia"] = sp["DonGia"];
+                    newRow["TenSP"] = sp["tensanpham"];
+                    newRow["DonGia"] = sp["dongia"];
                     newRow["SoLuong"] = 1;
-                    newRow["HinhAnh"] = sp["HinhAnh"];
+                    newRow["HinhAnh"] = sp["hinh"];
                     dtGioHang.Rows.Add(newRow);
                 }
 
                 Session["GioHang"] = dtGioHang;
             }
-
-            // Redirect sang giỏ hàng (hiển thị)
-            Response.Redirect("Giohang.aspx");
+            Response.Redirect("Giohang.aspx?makh="+makha);
         }
 
     }

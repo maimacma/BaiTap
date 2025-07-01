@@ -39,26 +39,26 @@
         <div class="container mb-5">
             <h2 class="mb-4">Giỏ hàng của bạn</h2>
            <asp:GridView ID="gvGioHang" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered"
-               OnRowCommand="gvGioHang_RowCommand" DataKeyNames="masanpham">
+               OnRowCommand="gvGioHang_RowCommand" DataKeyNames="MaSP">
 
                 <Columns>
-                    <asp:BoundField DataField="tensanpham" HeaderText="Tên sản phẩm" />
-                    <asp:BoundField DataField="dongia" HeaderText="Đơn giá" DataFormatString="{0:N0}₫" />
+                    <asp:BoundField DataField="TenSP" HeaderText="Tên sản phẩm" />
+                    <asp:BoundField DataField="DonGia" HeaderText="Đơn giá" DataFormatString="{0:N0}₫" />
                     <asp:TemplateField HeaderText="Số lượng">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtSoLuong" runat="server" Text='<%# Eval("soluong") %>'
-                                CssClass="form-control" Width="60px"></asp:TextBox>
+                            <asp:TextBox ID="txtSoLuong" runat="server" Text='<%# Eval("SoLuong") %>'
+                                CssClass="form-control" Width="60px" OnTextChanged ="txtSoLuong_TextChanged"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Thành tiền">
                         <ItemTemplate>
-                            <%# Convert.ToDecimal(Eval("dongia")) * Convert.ToInt32(Eval("soluong")) %> ₫
+                            <asp:Label runat="server" ID="ttmh" Text='<% %>''></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Hành động">
                         <ItemTemplate>
-                            <asp:LinkButton ID="btnCapNhat" runat="server" CommandName="CapNhat" CommandArgument='<%# Eval("masanpham") %>' CssClass="btn btn-sm btn-warning">Cập nhật</asp:LinkButton>
-                            <asp:LinkButton ID="btnXoa" runat="server" CommandName="Xoa" CommandArgument='<%# Eval("masanpham") %>' CssClass="btn btn-sm btn-danger ml-2">Xoá</asp:LinkButton>
+                            <asp:LinkButton ID="btnCapNhat" runat="server" CommandName="CapNhat" CommandArgument='<%# Eval("MaSP") %>' CssClass="btn btn-sm btn-warning">Cập nhật</asp:LinkButton>
+                            <asp:LinkButton ID="btnXoa" runat="server" CommandName="Xoa" CommandArgument='<%# Eval("MaSP") %>' CssClass="btn btn-sm btn-danger ml-2">Xoá</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

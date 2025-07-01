@@ -13,15 +13,15 @@ namespace BaiTap
 
     public partial class Giohang : System.Web.UI.Page
     {
-        private SqlConnection conn = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=thang;Integrated Security=True");
+        private SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=thang;Integrated Security=True");
 
         private int TaoMaHoaDonMoi()
         {
             try
             {
-                conn.Open();
+                con.Open();
                 string sql = "SELECT ISNULL(MAX(mahoadon), 0) + 1 FROM hoadon";
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlCommand cmd = new SqlCommand(sql, con);
                 int mahoadon = (int)cmd.ExecuteScalar();
                 return mahoadon;
             }
@@ -32,7 +32,7 @@ namespace BaiTap
             }
             finally
             {
-                conn.Close();
+                con.Close();
             }
         }
 
@@ -76,22 +76,22 @@ namespace BaiTap
 
             if (Session["GioHang"] == null || ((DataTable)Session["GioHang"]).Rows.Count == 0)
             {
-                // Giỏ hàng trống
+             
                 return;
             }
 
             DataTable gioHang = (DataTable)Session["GioHang"];
-            string makh = Request.QueryString["makha"]; // lấy từ session đăng nhập
-            if (string.IsNullOrEmpty(makh))
-            {
-                Response.Redirect("Dangnhap.aspx");
-                return;
-            }
+             string makh = Request.QueryString["makh"]; // lấy từ session đăng nhập
+           // if (string.IsNullOrEmpty(makh))
+           // {
+                //Response.Redirect("Dangnhap.aspx");
+              //  return;
+            //}
 
             int mahoadon = TaoMaHoaDonMoi();
             DateTime ngayDat = DateTime.Now;
             DateTime ngayGiao = ngayDat.AddDays(3); // giao sau 3 ngày
-            decimal tongTien = gioHang.AsEnumerable().Sum(row => Convert.ToDecimal(row["dongia"]) * Convert.ToInt32(row["soluong"]));
+            decimal tongTien = gioHang.AsEnumerable().Sum(row => Convert.ToDecimal(row["DonGia"]) * Convert.ToInt32(row["SoLuong"]));
 
             using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString))
             {
@@ -207,14 +207,25 @@ namespace BaiTap
             decimal tongTien = 0;
             foreach (DataRow row in dtGioHang.Rows)
             {
-                decimal dongia = Convert.ToDecimal(row["dongia"]);
-                int soluong = Convert.ToInt32(row["soluong"]);
+                decimal dongia = Convert.ToDecimal(row["DonGia"]);
+                int soluong = Convert.ToInt32(row["SoLuong"]);
                 tongTien += dongia * soluong;
             }
             lblTongTien.Text = tongTien.ToString("N0") + "₫";
         }
 
-
+        protected void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dtGioHang = Session["GioHang"] as DataTable;
+            decimal tongTien = 0;
+            foreach (DataRow row in dtGioHang.Rows)
+            {
+                decimal dongia = Convert.ToDecimal(row["DonGia"]);
+                int soluong = Convert.ToInt32(row["SoLuong"]);
+                tongTien += dongia * soluong;
+            }
+            lblTongTien.Text = tongTien.ToString("N0") + "₫";
+        }
     }
 
 }
