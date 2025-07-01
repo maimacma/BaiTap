@@ -67,7 +67,7 @@
                     <li class="nav-item active"><a class="nav-link" href="Sanpham.aspx">Sản phẩm</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Tra cứu đơn hàng</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Giohang.aspx">Giỏ hàng</a></li>
                   
                 </ul>
                             <div class="d-flex align-items-center ml-auto" style="background-color:darkgray;">

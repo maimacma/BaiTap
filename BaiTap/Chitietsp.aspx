@@ -89,8 +89,10 @@
                                     <p class="mb-4">
                                         <asp:Label ID="lblMoTa" runat="server" />
                                     </p>
-
-                                    <asp:Button ID="btnMuaNgay" runat="server" CssClass="btn btn-danger btn-buy" Text=" Mua ngay" />
+                                    <asp:Label ID="f" runat="server" style="font-size:17px">Mời bạn nhập mã khách hàng</asp:Label><br />
+                                    <input type="text" id="makh" runat="server"/>
+                                    <br />
+                                    <asp:Button ID="btnMuaNgay"  runat="server" CssClass="btn btn-danger btn-buy" Text=" Mua ngay" OnClick="btnMuaNgay_Click" />
                                 </div>
                             </div>
                         </div>

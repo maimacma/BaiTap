@@ -201,6 +201,7 @@
     <Content Include="Dangnhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Giohang.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Js\JavaScript.js" />
     <Content Include="Sanpham.aspx" />
@@ -321,6 +322,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Giohang.aspx.cs">
+      <DependentUpon>Giohang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Giohang.aspx.designer.cs">
+      <DependentUpon>Giohang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

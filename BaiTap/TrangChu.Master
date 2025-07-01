@@ -43,7 +43,7 @@
 
             <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tra cứu đơn hàng</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
+            <li class="nav-item"><a class="nav-link" href="Giohang.aspx">Giỏ hàng</a></li>
         </ul>
 
         <div class="d-flex align-items-center ml-auto">

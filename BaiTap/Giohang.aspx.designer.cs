@@ -11,7 +11,7 @@ namespace BaiTap
 {
 
 
-    public partial class Chitietsp
+    public partial class Giohang
     {
 
         /// <summary>
@@ -24,84 +24,84 @@ namespace BaiTap
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblBreadcrumbTen control.
+        /// lblThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBreadcrumbTen;
+        protected global::System.Web.UI.WebControls.Label lblThongBao;
 
         /// <summary>
-        /// pnlChiTiet control.
+        /// phLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChiTiet;
+        protected global::System.Web.UI.WebControls.PlaceHolder phLogin;
 
         /// <summary>
-        /// imgSanPham control.
+        /// lnkLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgSanPham;
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogin;
 
         /// <summary>
-        /// lblTenSanPham control.
+        /// phLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTenSanPham;
+        protected global::System.Web.UI.WebControls.PlaceHolder phLogout;
 
         /// <summary>
-        /// lblGia control.
+        /// lnkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGia;
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogout;
 
         /// <summary>
-        /// lblMoTa control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoTa;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
 
         /// <summary>
-        /// f control.
+        /// gvGioHang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label f;
+        protected global::System.Web.UI.WebControls.GridView gvGioHang;
 
         /// <summary>
-        /// makh control.
+        /// lblTongTien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText makh;
+        protected global::System.Web.UI.WebControls.Label lblTongTien;
 
         /// <summary>
-        /// btnMuaNgay control.
+        /// btnThanhToan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMuaNgay;
+        protected global::System.Web.UI.WebControls.Button btnThanhToan;
     }
 }
